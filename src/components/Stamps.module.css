@@ -77,12 +77,7 @@
    * Both layers are sized and placed alike, so each strip samples the same
    * band of the mark and of the sheet beneath it.
    */
-  background-image: url("/monogram.svg"),
-    radial-gradient(
-      circle at center,
-      rgb(255 255 255 / 7%) 0 49%,
-      transparent 50%
-    );
+  background-image: radial-gradient(circle at center, #000 0 49%, transparent 50%);
   background-repeat: no-repeat;
   background-size: var(--size) var(--size);
   background-position: 0 calc(var(--i) * var(--strip) * -1);
@@ -158,4 +153,52 @@
   .slice {
     animation: none;
   }
+}
+
+/* Shade the logo on a separate face so filters never flatten the curling strips. */
+.slice::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--finish-base, transparent);
+  background-image: var(--finish);
+  background-size: var(--finish-size, var(--size) var(--size));
+  background-position: 0 calc(var(--i) * var(--strip) * -1);
+  mask-image: url("/monogram.svg");
+  mask-repeat: no-repeat;
+  mask-size: var(--size) var(--size);
+  mask-position: 0 calc(var(--i) * var(--strip) * -1);
+  pointer-events: none;
+}
+.stamp[data-finish="original"] {
+  --ink: 0.65;
+  --finish: linear-gradient(#fff, #fff);
+}
+.stamp[data-finish="chrome"] {
+  --finish: linear-gradient(165deg, #fff 0%, #8d9aaa 18%, #f5faff 30%, #3d4654 43%, #fff 47%, #c2d3e1 52%, #303641 66%, #fff 78%, #7b8794 92%, #fff);
+}
+.stamp[data-finish="embossed"] {
+  --finish: linear-gradient(150deg, #fff, #cbd0d7 40%, #66707d 65%, #dce1e7);
+}
+.stamp[data-finish="embossed"] .slice::before {
+  filter: drop-shadow(0 0.6px 0 #fff) drop-shadow(0 -0.6px 0 #202630);
+}
+.stamp[data-finish="chrome"] .slice::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 25%, rgb(255 255 255 / 85%) 47%, transparent 65%);
+  background-size: calc(var(--size) * 2) var(--size);
+  mask: url("/monogram.svg") no-repeat;
+  mask-size: var(--size) var(--size);
+  mask-position: 0 calc(var(--i) * var(--strip) * -1);
+  animation: glint var(--life) cubic-bezier(0.22, 1, 0.36, 1) both;
+  pointer-events: none;
+}
+@keyframes glint {
+  from { background-position: calc(var(--size) * -1) calc(var(--i) * var(--strip) * -1); }
+  to { background-position: var(--size) calc(var(--i) * var(--strip) * -1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stamp[data-finish] .slice::after { animation: none; }
 }

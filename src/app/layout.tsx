@@ -105,31 +105,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: MARK_SCRIPTED }} />
-        {/*
-          Every face is above the fold on one page or another, so all three are
-          preloaded to avoid a flash of fallback text on first paint.
-        */}
-        <link
-          rel="preload"
-          href="/fonts/CartographCF-Light.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/ArticulatCF-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/MillerDisplay-Italic.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="https://use.typekit.net/swz5frw.css?v=20261021-medium-2" />
       </head>
       <body suppressHydrationWarning>
         {/*

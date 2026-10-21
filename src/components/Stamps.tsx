@@ -23,6 +23,8 @@ const STRIPS = 10;
 
 /** How far the mark may lean either way, in degrees. Hand-stamped, not printed. */
 const LEAN = 14;
+const FINISHES = ["original", "chrome", "embossed"] as const;
+type Finish = typeof FINISHES[number];
 
 /**
  * How far the pointer may travel between press and release and still count as
@@ -36,6 +38,7 @@ type Stamp = {
   x: number;
   y: number;
   lean: number;
+  finish: Finish;
 };
 
 /**
@@ -50,6 +53,7 @@ export function Stamps() {
   // Counted rather than timed: two clicks can share a millisecond, and two
   // marks sharing a key would have React reuse one element for both.
   const nextId = useRef(0);
+  const lastFinish = useRef<Finish | null>(null);
   const [stamps, setStamps] = useState<Stamp[]>([]);
 
   useEffect(() => {
@@ -89,11 +93,15 @@ export function Stamps() {
       if (box.width === 0 || box.height === 0) return;
 
       const id = (nextId.current += 1);
+      const choices = FINISHES.filter(finish => finish !== lastFinish.current);
+      const finish = choices[Math.floor(Math.random() * choices.length)];
+      lastFinish.current = finish;
 
       setStamps((previous) => [
         ...previous.slice(-(KEPT - 1)),
         {
           id,
+          finish,
           x: ((event.clientX - box.left) / box.width) * 100,
           y: ((event.clientY - box.top) / box.height) * 100,
           lean: Math.random() * LEAN * 2 - LEAN,
@@ -123,6 +131,7 @@ export function Stamps() {
         <div
           key={stamp.id}
           className={styles.stamp}
+          data-finish={stamp.finish}
           style={
             {
               left: `${stamp.x}%`,

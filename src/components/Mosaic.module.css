@@ -24,7 +24,7 @@
   position: absolute;
   left: calc(var(--xg) * var(--gap) + var(--xd) * var(--u));
   top: calc(
-    var(--yg) * var(--gap) + var(--yb) * var(--band) + var(--yd) * var(--u)
+    var(--gap) + (var(--yg) - 1) * var(--row-gap) + var(--yb) * var(--band) + var(--yd) * var(--u)
   );
   width: calc(var(--w) * var(--u));
   /* The artwork, which grows, and the caption's band, which does not. */
@@ -34,11 +34,27 @@
 /* The artwork's own box: the tile, less the band its title stands in. */
 .frame {
   position: relative;
+  border-radius: 8px;
   display: block;
   width: 100%;
   height: calc(100% - var(--band));
   overflow: hidden;
   background-color: var(--color-tile);
+}
+
+.frame:has(.media) {
+  background-color: transparent;
+}
+
+/* An inset hairline sits above images and video without changing their size. */
+.frame:has(.media)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+  border: 1px solid rgb(255 255 255 / 20%);
+  pointer-events: none;
 }
 
 /*
@@ -49,11 +65,12 @@
   visibility: hidden;
 }
 
-/* Stills and clips are cropped to the frame identically. */
+/* Preserve every edge of the artwork; the tile follows its native ratio. */
 .media {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /*
@@ -66,7 +83,7 @@
   height: var(--band);
   padding-top: var(--caption-top);
   margin: 0;
-  font-family: var(--font-sans);
+  font-family: var(--font-caption);
   line-height: var(--caption-line);
   overflow: hidden;
 }
@@ -80,15 +97,16 @@
 }
 
 .name {
-  font-weight: 500;
+  font-weight: 700;
   font-size: var(--caption-name);
   color: var(--color-ink);
 }
 
 .note {
-  font-weight: 400;
+  font-weight: 700;
   font-size: var(--caption-note);
-  color: var(--color-muted);
+  color: #fff;
+  opacity: 0.35;
 }
 
 /*
@@ -108,6 +126,29 @@
   text-align: inherit;
   cursor: zoom-in;
 }
+
+/* Full-width masonry for the compact homepage; other pages keep their layout. */
+.flow .canvas {
+  height: auto;
+  columns: 4;
+  column-gap: var(--gap);
+  padding: var(--gap);
+}
+.flow .link { cursor: pointer; }
+.flow .tile {
+  position: relative;
+  inset: auto;
+  width: auto;
+  height: auto;
+  margin-bottom: var(--row-gap);
+  break-inside: avoid;
+}
+.flow .frame { aspect-ratio: var(--tile-ratio); height: auto; }
+.flow .caption { height: auto; }
+@media (max-width: 1199px) {
+  .flow .canvas { columns: 3; }
+}
+@media (max-width: 767px) { .flow .canvas { columns: 2; } }
 
 /*
  * Below the desktop breakpoint the absolute composition stops working: the
@@ -153,7 +194,7 @@
     width: auto;
     /* The frame carries the proportions; the title adds its line beneath. */
     height: auto;
-    margin-bottom: var(--gap);
+    margin-bottom: var(--row-gap);
     break-inside: avoid;
   }
 
@@ -173,3 +214,5 @@
     columns: 2;
   }
 }
+
+@media (max-width: 767px) { .flow { padding-bottom: calc(96px + env(safe-area-inset-bottom)); } }

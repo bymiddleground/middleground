@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    localPatterns: [
+      { pathname: "/images/homepage/**" },
+      { pathname: "/images/**", search: "" },
+    ],
     /*
      * AVIF first, WebP behind it, the original behind that.
      *

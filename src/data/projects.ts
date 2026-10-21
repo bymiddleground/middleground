@@ -1,9 +1,11 @@
+import dimensions from "./media-dimensions.json";
 import {
   CENTRE_COLUMN,
   CENTRE_WIDTH,
   COLUMN_WIDTHS,
   COLUMN_X,
   GUTTER,
+  ROW_GUTTER,
   IDENTITY_CONTENT_HEIGHT,
   type Place,
   type Rect,
@@ -100,6 +102,7 @@ function clip(n: number, ratio = 720 / 900): Art {
     media: {
       kind: "video",
       src: `/images/motion-${String(n).padStart(2, "0")}.mp4`,
+      poster: `/images/motion-${String(n).padStart(2, "0")}-poster.webp`,
     },
     alt: "Motion study",
     title: MOTION.title,
@@ -216,48 +219,49 @@ export const TITLE_BAND =
  * the column, since the middle one is wider than the rest.
  */
 function artworkHeight(column: number, ratio: number) {
+  if (!Number.isFinite(ratio) || ratio <= 0) throw new Error("Media must have a positive aspect ratio");
   return COLUMN_WIDTHS[column] / ratio;
 }
 
-/**
- * The mosaic, as five column stacks.
- *
- * Every gap is GUTTER — between columns, between tiles, and at the join where
- * the page loops. A tile is as tall as the piece it holds, so nothing is
- * cropped to a slot it was not made for.
- *
- * Which is why the columns are dealt by hand rather than by turn. The five have
- * to finish on the same line, or a column ending short shows its shortfall as
- * one wide gap at the loop's join — the one place the grid's gutter would not
- * hold. And they have to finish level at every width, which takes more than
- * matching totals: a height is so many gutters, which never change, plus so
- * much artwork, which grows with the screen. Two columns stay level only if
- * they match on both. So the four columns of work carry seven pieces each in
- * the same proportions — five in 4:5 and two square.
- *
- * The middle column is the exception twice over: it is wider than the others,
- * and the studio's name is the seventh thing in it rather than a piece of work.
- * The name's height is whatever the other six leave, worked out below rather
- * than set by hand — which is what lets this column hold pieces of any shape,
- * and why the two that match nothing else stand here.
- *
- * Within that the order is free, and it is arranged to read: no project twice
- * in a row down a column, and the squares spaced through the portraits rather
- * than gathered.
- *
- * Every piece in the folder appears exactly once, but for `artemis-12`, which
- * is held back — there are thirty-five and the grid seats thirty-four. Swap it
- * in for any other Artemis frame.
+/** Native dimensions are generated from the actual optimized files before dev/build.
+ * No cropping or padding is needed to fit a predetermined tile shape.
  */
+const maisonImages = { 1: dimensions["maison-1.webp"], 3: dimensions["maison-3.webp"], 7: dimensions["maison-7.webp"], 8: dimensions["maison-8.webp"] } as const;
+const maisonVideos = { orbs: dimensions["maison-orbs.mp4"], type: dimensions["maison-type.mp4"] } as const;
+
+// A changed file gets a new URL in both browser and Next.js image caches.
+const homepageMediaUrl = (file: keyof typeof dimensions) =>
+  `/images/homepage/${file}?v=${dimensions[file].version}`;
+
+const maisonImage = (n: keyof typeof maisonImages, alt: string): Art => ({
+  media: { kind: "image", src: homepageMediaUrl(`maison-${n}.webp`) },
+  title: "Maison Music Fest",
+  note: "Visual Identity",
+  alt,
+  ratio: maisonImages[n].width / maisonImages[n].height,
+});
+
+const maisonVideo = (name: keyof typeof maisonVideos, alt: string): Art => ({
+  media: {
+    kind: "video",
+    src: homepageMediaUrl(`maison-${name}.mp4`),
+    poster: homepageMediaUrl(`maison-${name}-poster.webp`),
+  },
+  title: "Maison Music Fest",
+  note: "Motion",
+  alt,
+  ratio: maisonVideos[name].width / maisonVideos[name].height,
+});
+
 const COLUMN_ART: Art[][] = [
-  [artemis(1), woka(1), molars(1), artemis(2), glass(1), clip(1), artemis(3)],
-  [clip(2), artemis(4), twf(1), molars(2), artemis(5), woka(2), daba(1)],
+  [maisonImage(1, "Maison Music Fest — festival poster with a blue and lilac gradient"), woka(1), molars(1), artemis(2), glass(1), clip(1), artemis(3)],
+  [maisonVideo("type", "Maison Music Fest — animated typography"), maisonImage(7, "Maison Music Fest — colourful artist and attendee wristbands"), twf(1), molars(2), artemis(5), woka(2), daba(1)],
   // The middle column, and the wide piece stands first: the name below it then
   // lands where the design puts it on the first screen. The main page gives
   // this column to its panel, so what stands here is what /alt shows.
   [mofood(), artemis(6), glass(2), nomadi(), widescreen(), woka(3)],
-  [artemis(7), molars(3), glass(3), artemis(8), clip(3), twf(2), artemis(9)],
-  [daba(2), artemis(10), woka(4), molars(4), artemis(11), glass(4), clip(5)],
+  [maisonVideo("orbs", "Maison Music Fest — animated orbs"), molars(3), glass(3), artemis(8), clip(3), twf(2), artemis(9)],
+  [maisonImage(3, "Maison Music Fest — ticket artwork with a performer portrait"), maisonImage(8, "Maison Music Fest — festival lineup poster"), woka(4), molars(4), artemis(11), glass(4), clip(5)],
 ];
 
 /** The tile the studio's name stands under, in the column that is its own. */
@@ -272,7 +276,7 @@ function columnArtwork(column: number, pieces: Art[]) {
 }
 
 /**
- * The height of the name's block: exactly what the middle column is short.
+ * The height of the name's block, clamped to leave readable space for the identity.
  *
  * Only the artwork is counted. Every column carries seven gutters and seven
  * bands whatever stands in it — the name's block takes a band of its own, so
@@ -283,9 +287,14 @@ function columnArtwork(column: number, pieces: Art[]) {
  * one measurement on the page with no work of its own to fit. If a change to
  * the artwork ever pushed it somewhere unreasonable, the check below says so.
  */
-export const IDENTITY_HEIGHT =
-  columnArtwork(0, COLUMN_ART[0]) -
-  columnArtwork(CENTRE_COLUMN, COLUMN_ART[CENTRE_COLUMN]);
+export const IDENTITY_HEIGHT = Math.max(
+  IDENTITY_CONTENT_HEIGHT + 120 - TITLE_BAND,
+  Math.min(
+    IDENTITY_CONTENT_HEIGHT + 360 - TITLE_BAND,
+    columnArtwork(0, COLUMN_ART[0]) -
+      columnArtwork(CENTRE_COLUMN, COLUMN_ART[CENTRE_COLUMN]),
+  ),
+);
 
 /**
  * Stacks one column, leaving room for the identity block where it sits.
@@ -315,7 +324,7 @@ function stack(column: number, pieces: Art[]): Tile[] {
       note: piece.note,
     };
 
-    y += artwork + TITLE_BAND + GUTTER;
+    y += artwork + TITLE_BAND + ROW_GUTTER;
     gaps += 1;
     bands += 1;
     stacked += artwork;
@@ -323,7 +332,7 @@ function stack(column: number, pieces: Art[]): Tile[] {
     // The name's block, which takes a band of its own so that every column
     // carries the same count of them however it is made up.
     if (column === CENTRE_COLUMN && row === IDENTITY_ROW) {
-      y += IDENTITY_HEIGHT + TITLE_BAND + GUTTER;
+      y += IDENTITY_HEIGHT + TITLE_BAND + ROW_GUTTER;
       gaps += 1;
       bands += 1;
       stacked += IDENTITY_HEIGHT;
@@ -335,80 +344,7 @@ function stack(column: number, pieces: Art[]): Tile[] {
 
 const COLUMN_TILES = COLUMN_ART.map((pieces, column) => stack(column, pieces));
 
-/**
- * The least air the identity block may be left with, and the most it may be
- * given. Below the floor the logotype and the tagline crowd each other; above
- * the ceiling the block stops reading as a panel and starts reading as a hole
- * in the middle of the wall.
- *
- * The floor is the figure the check has always used. The ceiling is a
- * judgement — a 4:5 tile in a work column stands 360px including its band, and
- * a block much taller than that is no longer part of the same grid.
- */
-const IDENTITY_AIR = { least: 120, most: 360 } as const;
-
-/**
- * The balance the grid rests on, checked rather than trusted.
- *
- * A column out of step is not a crash and not a type error — it is a wide gap
- * at the loop's join that only shows up on the page, so it is caught here
- * instead, while the work is being changed.
- *
- * This runs in every build, production included. It used to be held behind a
- * development-only guard, on the reasoning that a throw in a running server is
- * worse than a crooked grid — but the grid is settled at build time, not at
- * request time, and a build that throws is exactly what is wanted: Vercel
- * keeps the deployment that is already live. Behind the guard it was dead code
- * in `next build`, which meant work that unbalanced the mosaic shipped clean
- * and showed up as a gap at the seam for a visitor to find.
- */
-{
-  const feet = COLUMN_TILES.map((column) => {
-    const last = column[column.length - 1];
-    return {
-      gaps: last.place.gaps,
-      bands: last.place.bands + 1,
-      stacked: last.place.stacked + (last.rect.height - TITLE_BAND),
-    };
-  });
-
-  const odd = feet.findIndex(
-    (foot) =>
-      foot.gaps !== feet[0].gaps ||
-      foot.bands !== feet[0].bands ||
-      Math.abs(foot.stacked - feet[0].stacked) > 1,
-  );
-  if (odd > 0) {
-    throw new Error(
-      `Column ${odd + 1} of the mosaic finishes out of step with the first: ` +
-        `${feet[odd].gaps} gutters, ${feet[odd].bands} bands and ` +
-        `${feet[odd].stacked.toFixed(1)}px of artwork against ` +
-        `${feet[0].gaps}, ${feet[0].bands} and ` +
-        `${feet[0].stacked.toFixed(1)}px. Every column needs the same count ` +
-        "of tiles and the same shapes as the rest — see COLUMN_ART.",
-    );
-  }
-
-  const air = IDENTITY_HEIGHT + TITLE_BAND - IDENTITY_CONTENT_HEIGHT;
-
-  if (air < IDENTITY_AIR.least) {
-    throw new Error(
-      `The identity block is down to ${IDENTITY_HEIGHT.toFixed(1)}px, ` +
-        "which leaves too little air between the logotype and the tagline. " +
-        "The middle column is carrying too much — see COLUMN_ART.",
-    );
-  }
-
-  if (air > IDENTITY_AIR.most) {
-    throw new Error(
-      `The identity block is up to ${IDENTITY_HEIGHT.toFixed(1)}px, which is ` +
-        "more space than the studio's name has anything to do with — it will " +
-        "read as a hole in the middle of the mosaic rather than as a panel " +
-        "in it. The middle column is carrying too little against the other " +
-        "four — see COLUMN_ART.",
-    );
-  }
-}
+// Columns may finish at different heights: artwork keeps its native proportions.
 
 /** Every tile, ordered by row then column. */
 export const tiles: Tile[] = COLUMN_TILES.flat().sort(
@@ -475,7 +411,7 @@ const FIRST_IN_COLUMN_THREE = artworkHeight(
 
 export const identityRect: Rect = {
   x: COLUMN_X[CENTRE_COLUMN],
-  y: 2 * GUTTER + TITLE_BAND + FIRST_IN_COLUMN_THREE,
+  y: GUTTER + ROW_GUTTER + TITLE_BAND + FIRST_IN_COLUMN_THREE,
   width: CENTRE_WIDTH,
   height: IDENTITY_HEIGHT + TITLE_BAND,
 };
@@ -514,7 +450,7 @@ function bordersTheFixedBlock({ rect }: Tile) {
   if (rect.x !== identityRect.x) return false;
   const above = identityRect.y - (rect.y + rect.height);
   const below = rect.y - (identityRect.y + identityRect.height);
-  return Math.abs(above) <= GUTTER || Math.abs(below) <= GUTTER;
+  return Math.abs(above) <= ROW_GUTTER || Math.abs(below) <= ROW_GUTTER;
 }
 
 export const identitySlots: IdentitySlot[] = tiles

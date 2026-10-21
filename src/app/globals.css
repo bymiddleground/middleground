@@ -75,9 +75,10 @@
   --color-tone-butter: #f4dc64;
   --color-tone-blossom: #e9aedb;
 
-  --font-mono: "Cartograph CF", ui-monospace, "SF Mono", Menlo, monospace;
-  --font-sans: "Articulat CF", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: "Miller Display", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: "cartograph-cf", "Cartograph CF", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-sans: "articulat-cf", "Articulat CF", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-caption: var(--font-sans);
+  --font-display: "miller-display", "Miller Display", ui-serif, Georgia, "Times New Roman", serif;
 
   /*
    * The band the way on stands in at the foot of a phone's screen. Named here
@@ -179,7 +180,7 @@ html.js [data-intro]:not([data-revealed]) {
 
 @media (min-width: 1200px) {
   body:has([data-nav="overlay"]:hover) [data-mark],
-  body:has([data-nav="overlay"]:focus-within) [data-mark] {
+  body:has([data-nav="overlay"]:has(:focus-visible)) [data-mark] {
     opacity: 0;
   }
 }

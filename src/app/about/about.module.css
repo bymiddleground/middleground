@@ -10,6 +10,7 @@
  */
 .screen {
   position: relative;
+  overflow-x: clip;
   /* The frame's own height. The container is exactly 1440 design units wide. */
   height: calc(2267 * var(--s));
 }
@@ -35,7 +36,7 @@
   font-weight: 400;
   font-size: calc(48 * var(--s));
   line-height: 1;
-  color: var(--color-bone);
+  color: #ffffff;
 }
 
 /* How it works, in two columns beneath. */
@@ -179,12 +180,14 @@
   position: absolute;
   left: calc(270 * var(--s));
   top: 0;
-  width: calc(162.291 * var(--s));
-  height: calc(18.531 * var(--s));
+  width: calc(129.8328 * var(--s));
+  height: calc(7.4124 * var(--s));
   background-color: var(--color-ink);
 }
 
 .portrait {
+  border-radius: 8px;
+  overflow: hidden;
   position: absolute;
   left: calc(719 * var(--s));
   top: 0;
@@ -351,9 +354,9 @@
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
-  font-size: calc(286.247 * var(--s));
+  font-size: calc(270 * var(--s));
   line-height: 0.8;
-  color: var(--color-bone);
+  color: #ffffff;
   white-space: nowrap;
 }
 
@@ -468,8 +471,8 @@
   }
 
   .rule {
-    width: 120px;
-    height: 14px;
+    width: 96px;
+    height: 5.6px;
   }
 
   .portrait {
@@ -535,3 +538,6 @@
     margin-top: 32px;
   }
 }
+
+.portrait[data-warp-ready] [data-portrait-warp] { opacity: 1 !important; }
+.portrait[data-warp-ready] .portraitPixels { display: none; }

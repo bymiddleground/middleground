@@ -13,7 +13,7 @@
   position: absolute;
   left: calc(var(--xg, 0) * var(--gap) + var(--xd, 0) * var(--u));
   top: calc(
-    var(--yg, 0) * var(--gap) + var(--yb, 0) * var(--band) +
+    var(--gap) + (var(--yg, 1) - 1) * var(--row-gap) + var(--yb, 0) * var(--band) +
       var(--yd, 0) * var(--u)
   );
   width: calc(var(--w, 0) * var(--u));
@@ -86,7 +86,7 @@
   composes: identity;
   left: calc(var(--slot-xg, 0) * var(--gap) + var(--slot-xd, 0) * var(--u));
   top: calc(
-    var(--slot-yg, 0) * var(--gap) + var(--slot-yb, 0) * var(--band) +
+    var(--gap) + (var(--slot-yg, 1) - 1) * var(--row-gap) + var(--slot-yb, 0) * var(--band) +
       var(--slot-yd, 0) * var(--u)
   );
   width: calc(var(--slot-w, 0) * var(--u));

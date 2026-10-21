@@ -1,8 +1,8 @@
 import type { CSSProperties } from "react";
-import Image from "next/image";
+import { ResilientImage as Image } from "./ResilientImage";
 import Link from "next/link";
 
-import { COLUMN_X, toStyle } from "@/data/design";
+import { COLUMN_X, ROW_GUTTER, toStyle } from "@/data/design";
 import {
   CAPTION,
   COLUMN_METRICS,
@@ -15,6 +15,7 @@ import { ArtworkProvider, ArtworkTrigger } from "./ArtworkView";
 import { Identity } from "./Identity";
 import { MosaicMotion } from "./MosaicMotion";
 import { IdentityRelay } from "./IdentityRelay";
+import { FlowScroll } from "./FlowScroll";
 import { MosaicScroll } from "./MosaicScroll";
 import { TileVideo } from "./TileVideo";
 import styles from "./Mosaic.module.css";
@@ -41,7 +42,7 @@ const ABOVE_THE_FOLD = 5;
  */
 const CANVAS_HEIGHT = `max(${COLUMN_METRICS.map(
   ({ gaps, bands, stacked }) =>
-    `calc(${gaps} * var(--gap) + ${bands} * var(--band) + ${stacked} * var(--u))`,
+    `calc(var(--gap) + ${gaps - 1} * var(--row-gap) + ${bands} * var(--band) + ${stacked} * var(--u))`,
 ).join(", ")})`;
 
 function columnOf(tile: Tile) {
@@ -161,7 +162,6 @@ function Canvas({
   const shown = tiles.filter(
     (tile) => skipColumn === undefined || columnOf(tile) !== skipColumn,
   );
-
   const style = {
     // Passed as a custom property rather than a height so the responsive rules
     // in the stylesheet can still drop the canvas out of absolute layout.
@@ -212,22 +212,29 @@ export function Mosaic({
   identity = true,
   /** Hold the tiles back, for a page that opens with something else first. */
   delay = 0,
+  flow = false,
 }: {
   skipColumn?: number;
   clearFoot?: boolean;
   identity?: boolean;
   delay?: number;
+  /** Homepage masonry fills the width and ends naturally after the work. */
+  flow?: boolean;
 } = {}) {
   return (
-    <ArtworkProvider>
+    <ArtworkProvider items={tiles.filter(tile => tile.media).map(tile => ({
+      media: tile.media, title: tile.title, note: tile.note, alt: tile.alt,
+      ratio: tile.rect.width / (tile.rect.height - TITLE_BAND),
+    }))}>
       <div
-        className={clearFoot ? `${styles.loop} ${styles.clearFoot}` : styles.loop}
+        style={{ "--row-gap": `${ROW_GUTTER}px` } as CSSProperties}
+        className={[styles.loop, clearFoot ? styles.clearFoot : "", flow ? styles.flow : ""].filter(Boolean).join(" ")}
       >
         <MosaicMotion delay={delay} />
-        <MosaicScroll />
+        {flow ? <FlowScroll /> : <MosaicScroll />}
         {identity ? <IdentityRelay /> : null}
         <Canvas copy={0} skipColumn={skipColumn} identity={identity} />
-        <Canvas copy={1} skipColumn={skipColumn} identity={identity} />
+        {!flow ? <Canvas copy={1} skipColumn={skipColumn} identity={identity} /> : null}
       </div>
     </ArtworkProvider>
   );

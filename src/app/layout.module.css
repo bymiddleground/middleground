@@ -41,11 +41,11 @@
  * the artwork beneath.
  */
 .header {
-  position: absolute;
+  position: fixed;
   top: calc(36 * var(--s));
   left: calc(36 * var(--s));
   right: calc(36 * var(--s));
-  z-index: 2;
+  z-index: 5;
   pointer-events: none;
 }
 
@@ -89,10 +89,10 @@
   }
 
   .header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    left: auto;
-    right: auto;
+    left: 0;
+    right: 0;
     /*
      * Tight to the top, and clear of the rounded corners and cutouts on a
      * phone — the inset is zero on anything without one.
@@ -103,4 +103,11 @@
   }
 
   /* Its ground is the shared band — see [data-band] in globals.css. */
+}
+
+/* Preserve the mobile header space while its navigation stays in the viewport. */
+@media (max-width: 1199px) {
+  .header:not(:has([data-intro="rest"])) + main {
+    padding-top: calc(max(12px, env(safe-area-inset-top)) + 51px);
+  }
 }

@@ -12,55 +12,77 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(24px, 5vw, 72px);
+  --gallery-edge: clamp(16px, 3vw, 36px);
+  padding: 104px 100px 132px;
   /*
    * Well down, but not out: enough of the grid shows through to say the page is
    * still there behind the piece, and not enough to read across it.
    */
-  background-color: rgb(0 0 0 / 85%);
+}
+
+.overlay:focus { outline: none; }
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0 0 0 / 70%);
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
   animation: arrive 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .figure {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   margin: 0;
   max-width: 100%;
+  touch-action: auto;
 }
 
-/*
- * Whole, not cropped. The tiles crop their artwork to the grid; this is the
- * one place it is shown as it was made.
- */
+.artwork {
+  position: relative;
+  width: min(
+    1100px,
+    calc(100vw - 200px),
+    calc((100svh - 236px) * var(--artwork-ratio))
+  );
+  aspect-ratio: var(--artwork-ratio);
+}
+
+.movingMedia {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* The rounded wrapper reserves the media's natural proportions before loading. */
 .media {
   display: block;
-  max-width: min(100%, 1100px);
-  /* The gap and the caption's line, so a tall piece still fits the screen. */
-  max-height: calc(100svh - clamp(24px, 5vw, 72px) * 2 - 44px);
-  /*
-   * The image carries its own width and height now, so that the overlay holds
-   * the piece's shape before the file lands rather than snapping to it. Left
-   * at those figures it would ignore the two caps above, so both are handed
-   * back to the caps and the intrinsic ratio does the rest.
-   */
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
 }
 
 /* Signed as it is in the grid: the project, and what the work was. */
 .caption {
-  font-family: var(--font-sans);
-  font-weight: 400;
+  font-family: var(--font-caption);
+  font-weight: 700;
   line-height: 1.3;
-  /*
-   * Centred under the piece, not ranged left as in the grid: here it is under
-   * a picture standing on its own with nothing to line up with, and the two
-   * lines are different lengths.
-   */
-  text-align: center;
+  position: fixed;
+  top: calc(var(--gallery-edge) + env(safe-area-inset-top));
+  left: calc(var(--gallery-edge) + env(safe-area-inset-left));
+  max-width: calc(100vw - 160px);
+  text-align: left;
+  z-index: 2;
 }
 
 .name {
@@ -72,13 +94,14 @@
 .note {
   display: block;
   font-size: 12px;
-  color: var(--color-muted);
+  color: #fff;
+  opacity: 0.6;
 }
 
 .close {
   position: absolute;
-  top: clamp(16px, 3vw, 36px);
-  right: clamp(16px, 3vw, 36px);
+  top: var(--gallery-edge);
+  right: var(--gallery-edge);
   /* Clear of a phone's cutout when the page runs under it. */
   margin: env(safe-area-inset-top) env(safe-area-inset-right) 0 0;
   display: flex;
@@ -109,7 +132,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .overlay {
+  .backdrop {
     animation: none;
   }
 
@@ -117,3 +140,83 @@
     transition: none;
   }
 }
+
+.galleryArrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 44.8px;
+  height: 44.8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-pill-quiet);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: var(--color-pill-quiet-ink);
+  transform: translateY(-50%);
+  transition: background-color 200ms ease;
+  cursor: pointer;
+}
+.galleryArrow:hover { background: rgb(255 255 255 / 16%); }
+.galleryArrow:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.previous { left: calc(var(--gallery-edge) + env(safe-area-inset-left)); }
+.next { right: calc(var(--gallery-edge) + env(safe-area-inset-right)); }
+.thumbnails {
+  position: absolute;
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  max-width: calc(100vw - var(--gallery-edge) * 2);
+  padding: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  z-index: 3;
+}
+.thumbnails::-webkit-scrollbar { display: none; }
+.thumbnail {
+  position: relative;
+  flex: 0 0 68.4px;
+  width: 68.4px;
+  height: 57.6px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 10%);
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 180ms ease, box-shadow 180ms ease;
+}
+.thumbnail img, .thumbnail video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.thumbnail:hover { opacity: 0.85; }
+.thumbnail[aria-current="true"] { opacity: 1; box-shadow: 0 0 0 2px #fff; }
+.thumbnail:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.videoBadge { position: absolute; right: 5px; bottom: 5px; display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: rgb(0 0 0 / 65%); color: #fff; font-size: 9px; }
+@media (max-width: 767px) {
+  .overlay { padding: 104px 16px 160px; }
+  .artwork { width: min(calc(100vw - 32px), calc((100svh - 264px) * var(--artwork-ratio))); }
+  .galleryArrow { top: auto; bottom: calc(112px + env(safe-area-inset-bottom)); transform: none; }
+  .thumbnails { gap: 10px; bottom: calc(20px + env(safe-area-inset-bottom)); }
+  .thumbnail { flex-basis: 57.6px; width: 57.6px; height: 50.4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .thumbnail, .galleryArrow { transition: none; }
+}
+
+/* Matched to the Park City gallery: overlapping fades with no translation. */
+.outgoingMedia {
+  position: fixed;
+  border-radius: 16px;
+  overflow: hidden;
+  pointer-events: none;
+  animation: slideOut 360ms cubic-bezier(0.3, 0.7, 0.3, 1) both;
+}
+@keyframes slideOut { from { opacity: 1; } to { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .outgoingMedia { display: none; } }

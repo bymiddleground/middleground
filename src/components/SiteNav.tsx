@@ -19,13 +19,19 @@ import styles from "./SiteNav.module.css";
 export function SiteNav() {
   const pathname = usePathname();
 
-  if (pathname === HOME) return null;
+  if (pathname === HOME) {
+    return (
+      <div className={styles.centre} data-nav="overlay" data-intro="rest">
+        <Nav minimal />
+      </div>
+    );
+  }
 
   if (pathname === ALT_HOME) {
     // That page opens in sequence and the navigation is part of it.
     return (
       <div className={styles.corner} data-intro="rest">
-        <Nav />
+        <Nav minimal />
       </div>
     );
   }

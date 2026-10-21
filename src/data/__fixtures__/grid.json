@@ -6,7 +6,7 @@
         "x": 16,
         "y": 16,
         "width": 255,
-        "height": 360.35
+        "height": 373.64733076499726
       },
       "place": {
         "column": 0,
@@ -16,11 +16,11 @@
       },
       "media": {
         "kind": "image",
-        "src": "/images/artemis-01.jpg"
+        "src": "/images/homepage/maison-1.webp?v=246735481d18"
       },
-      "alt": "Artemis — brand identity for a fossil identification app",
-      "title": "Artemis",
-      "note": "Brand Identity, 2026"
+      "alt": "Maison Music Fest — festival poster with a blue and lilac gradient",
+      "title": "Maison Music Fest",
+      "note": "Visual Identity"
     },
     {
       "id": "c2-r1",
@@ -28,7 +28,7 @@
         "x": 287,
         "y": 16,
         "width": 255,
-        "height": 360.35
+        "height": 373.83017621145376
       },
       "place": {
         "column": 1,
@@ -38,11 +38,12 @@
       },
       "media": {
         "kind": "video",
-        "src": "/images/motion-02.mp4"
+        "src": "/images/homepage/maison-type.mp4?v=b0700f8f43b2",
+        "poster": "/images/homepage/maison-type-poster.webp?v=07ae986be307"
       },
-      "alt": "Motion study",
-      "title": "Motion",
-      "note": "3D & Motion, 2026"
+      "alt": "Maison Music Fest — animated typography",
+      "title": "Maison Music Fest",
+      "note": "Motion"
     },
     {
       "id": "c3-r1",
@@ -72,7 +73,7 @@
         "x": 898,
         "y": 16,
         "width": 255,
-        "height": 360.35
+        "height": 185.0375
       },
       "place": {
         "column": 3,
@@ -81,12 +82,13 @@
         "stacked": 0
       },
       "media": {
-        "kind": "image",
-        "src": "/images/artemis-07.jpg"
+        "kind": "video",
+        "src": "/images/homepage/maison-orbs.mp4?v=9f90779a99ac",
+        "poster": "/images/homepage/maison-orbs-poster.webp?v=806783d6a831"
       },
-      "alt": "Artemis — brand identity for a fossil identification app",
-      "title": "Artemis",
-      "note": "Brand Identity, 2026"
+      "alt": "Maison Music Fest — animated orbs",
+      "title": "Maison Music Fest",
+      "note": "Motion"
     },
     {
       "id": "c5-r1",
@@ -94,7 +96,7 @@
         "x": 1169,
         "y": 16,
         "width": 255,
-        "height": 360.35
+        "height": 373.64733076499726
       },
       "place": {
         "column": 4,
@@ -104,61 +106,17 @@
       },
       "media": {
         "kind": "image",
-        "src": "/images/daba-02.jpg"
+        "src": "/images/homepage/maison-3.webp?v=bed04b5e39fb"
       },
-      "alt": "DABA — body wash bottles photographed against the brand's terracotta palette",
-      "title": "DABA",
-      "note": "Brand Identity, 2024"
-    },
-    {
-      "id": "c1-r2",
-      "rect": {
-        "x": 16,
-        "y": 392.35,
-        "width": 255,
-        "height": 296.6
-      },
-      "place": {
-        "column": 0,
-        "gaps": 2,
-        "bands": 1,
-        "stacked": 318.75
-      },
-      "media": {
-        "kind": "image",
-        "src": "/images/woka-01.jpg"
-      },
-      "alt": "woka — the logotype beneath its mark, a sunburst drawn as an open hand",
-      "title": "woka",
-      "note": "Brand Identity, 2024"
-    },
-    {
-      "id": "c2-r2",
-      "rect": {
-        "x": 287,
-        "y": 392.35,
-        "width": 255,
-        "height": 360.35
-      },
-      "place": {
-        "column": 1,
-        "gaps": 2,
-        "bands": 1,
-        "stacked": 318.75
-      },
-      "media": {
-        "kind": "image",
-        "src": "/images/artemis-04.jpg"
-      },
-      "alt": "Artemis — brand identity for a fossil identification app",
-      "title": "Artemis",
-      "note": "Brand Identity, 2026"
+      "alt": "Maison Music Fest — ticket artwork with a performer portrait",
+      "title": "Maison Music Fest",
+      "note": "Visual Identity"
     },
     {
       "id": "c4-r2",
       "rect": {
         "x": 898,
-        "y": 392.35,
+        "y": 225.0375,
         "width": 255,
         "height": 360.35
       },
@@ -166,7 +124,7 @@
         "column": 3,
         "gaps": 2,
         "bands": 1,
-        "stacked": 318.75
+        "stacked": 143.4375
       },
       "media": {
         "kind": "image",
@@ -177,32 +135,98 @@
       "note": "Campaign, 2025"
     },
     {
+      "id": "c1-r2",
+      "rect": {
+        "x": 16,
+        "y": 413.64733076499726,
+        "width": 255,
+        "height": 296.6
+      },
+      "place": {
+        "column": 0,
+        "gaps": 2,
+        "bands": 1,
+        "stacked": 332.04733076499724
+      },
+      "media": {
+        "kind": "image",
+        "src": "/images/woka-01.jpg"
+      },
+      "alt": "woka — the logotype beneath its mark, a sunburst drawn as an open hand",
+      "title": "woka",
+      "note": "Brand Identity, 2024"
+    },
+    {
       "id": "c5-r2",
       "rect": {
         "x": 1169,
-        "y": 392.35,
+        "y": 413.64733076499726,
         "width": 255,
-        "height": 360.35
+        "height": 373.58642699926634
       },
       "place": {
         "column": 4,
         "gaps": 2,
         "bands": 1,
-        "stacked": 318.75
+        "stacked": 332.04733076499724
       },
       "media": {
         "kind": "image",
-        "src": "/images/artemis-10.jpg"
+        "src": "/images/homepage/maison-8.webp?v=af45e1910eb0"
       },
-      "alt": "Artemis — brand identity for a fossil identification app",
-      "title": "Artemis",
-      "note": "Brand Identity, 2026"
+      "alt": "Maison Music Fest — festival lineup poster",
+      "title": "Maison Music Fest",
+      "note": "Visual Identity"
+    },
+    {
+      "id": "c2-r2",
+      "rect": {
+        "x": 287,
+        "y": 413.83017621145376,
+        "width": 255,
+        "height": 373.64733076499726
+      },
+      "place": {
+        "column": 1,
+        "gaps": 2,
+        "bands": 1,
+        "stacked": 332.23017621145374
+      },
+      "media": {
+        "kind": "image",
+        "src": "/images/homepage/maison-7.webp?v=9fa9407fce18"
+      },
+      "alt": "Maison Music Fest — colourful artist and attendee wristbands",
+      "title": "Maison Music Fest",
+      "note": "Visual Identity"
+    },
+    {
+      "id": "c4-r3",
+      "rect": {
+        "x": 898,
+        "y": 609.3875,
+        "width": 255,
+        "height": 296.6
+      },
+      "place": {
+        "column": 3,
+        "gaps": 3,
+        "bands": 2,
+        "stacked": 462.1875
+      },
+      "media": {
+        "kind": "image",
+        "src": "/images/glass-03.jpg"
+      },
+      "alt": "Glass Banking — the black payment card, its name showing through the face",
+      "title": "Glass Banking",
+      "note": "Brand Identity, 2025"
     },
     {
       "id": "c3-r2",
       "rect": {
         "x": 558,
-        "y": 594.601098901099,
+        "y": 623.8984296660963,
         "width": 324,
         "height": 446.6
       },
@@ -210,7 +234,7 @@
         "column": 2,
         "gaps": 3,
         "bands": 2,
-        "stacked": 463.401098901099
+        "stacked": 476.6984296660962
       },
       "media": {
         "kind": "image",
@@ -224,7 +248,7 @@
       "id": "c1-r3",
       "rect": {
         "x": 16,
-        "y": 704.95,
+        "y": 734.2473307649973,
         "width": 255,
         "height": 360.35
       },
@@ -232,7 +256,7 @@
         "column": 0,
         "gaps": 3,
         "bands": 2,
-        "stacked": 573.75
+        "stacked": 587.0473307649972
       },
       "media": {
         "kind": "image",
@@ -243,54 +267,10 @@
       "note": "Campaign, 2025"
     },
     {
-      "id": "c2-r3",
-      "rect": {
-        "x": 287,
-        "y": 768.7,
-        "width": 255,
-        "height": 296.6
-      },
-      "place": {
-        "column": 1,
-        "gaps": 3,
-        "bands": 2,
-        "stacked": 637.5
-      },
-      "media": {
-        "kind": "image",
-        "src": "/images/twf-01.jpg"
-      },
-      "alt": "Tech for the World Forum — the stacked logotype beneath its globe mark",
-      "title": "Tech for the World Forum",
-      "note": "Brand Identity, 2023"
-    },
-    {
-      "id": "c4-r3",
-      "rect": {
-        "x": 898,
-        "y": 768.7,
-        "width": 255,
-        "height": 296.6
-      },
-      "place": {
-        "column": 3,
-        "gaps": 3,
-        "bands": 2,
-        "stacked": 637.5
-      },
-      "media": {
-        "kind": "image",
-        "src": "/images/glass-03.jpg"
-      },
-      "alt": "Glass Banking — the black payment card, its name showing through the face",
-      "title": "Glass Banking",
-      "note": "Brand Identity, 2025"
-    },
-    {
       "id": "c5-r3",
       "rect": {
         "x": 1169,
-        "y": 768.7,
+        "y": 811.2337577642636,
         "width": 255,
         "height": 296.6
       },
@@ -298,7 +278,7 @@
         "column": 4,
         "gaps": 3,
         "bands": 2,
-        "stacked": 637.5
+        "stacked": 664.0337577642636
       },
       "media": {
         "kind": "image",
@@ -309,10 +289,54 @@
       "note": "Brand Identity, 2024"
     },
     {
+      "id": "c2-r3",
+      "rect": {
+        "x": 287,
+        "y": 811.477506976451,
+        "width": 255,
+        "height": 296.6
+      },
+      "place": {
+        "column": 1,
+        "gaps": 3,
+        "bands": 2,
+        "stacked": 664.2775069764509
+      },
+      "media": {
+        "kind": "image",
+        "src": "/images/twf-01.jpg"
+      },
+      "alt": "Tech for the World Forum — the stacked logotype beneath its globe mark",
+      "title": "Tech for the World Forum",
+      "note": "Brand Identity, 2023"
+    },
+    {
+      "id": "c4-r4",
+      "rect": {
+        "x": 898,
+        "y": 929.9875000000001,
+        "width": 255,
+        "height": 360.35
+      },
+      "place": {
+        "column": 3,
+        "gaps": 4,
+        "bands": 3,
+        "stacked": 717.1875
+      },
+      "media": {
+        "kind": "image",
+        "src": "/images/artemis-08.jpg"
+      },
+      "alt": "Artemis — brand identity for a fossil identification app",
+      "title": "Artemis",
+      "note": "Brand Identity, 2026"
+    },
+    {
       "id": "c3-r3",
       "rect": {
         "x": 558,
-        "y": 1057.2010989010992,
+        "y": 1094.4984296660964,
         "width": 324,
         "height": 365.6
       },
@@ -320,7 +344,7 @@
         "column": 2,
         "gaps": 4,
         "bands": 3,
-        "stacked": 868.401098901099
+        "stacked": 881.6984296660962
       },
       "media": {
         "kind": "image",
@@ -334,7 +358,7 @@
       "id": "c1-r4",
       "rect": {
         "x": 16,
-        "y": 1081.3000000000002,
+        "y": 1118.5973307649974,
         "width": 255,
         "height": 360.35
       },
@@ -342,7 +366,7 @@
         "column": 0,
         "gaps": 4,
         "bands": 3,
-        "stacked": 892.5
+        "stacked": 905.7973307649972
       },
       "media": {
         "kind": "image",
@@ -353,54 +377,10 @@
       "note": "Brand Identity, 2026"
     },
     {
-      "id": "c2-r4",
-      "rect": {
-        "x": 287,
-        "y": 1081.3000000000002,
-        "width": 255,
-        "height": 360.35
-      },
-      "place": {
-        "column": 1,
-        "gaps": 4,
-        "bands": 3,
-        "stacked": 892.5
-      },
-      "media": {
-        "kind": "image",
-        "src": "/images/molars-02.jpg"
-      },
-      "alt": "Outsmarted My Molars — sticker campaign",
-      "title": "Outsmarted My Molars",
-      "note": "Campaign, 2025"
-    },
-    {
-      "id": "c4-r4",
-      "rect": {
-        "x": 898,
-        "y": 1081.3000000000002,
-        "width": 255,
-        "height": 360.35
-      },
-      "place": {
-        "column": 3,
-        "gaps": 4,
-        "bands": 3,
-        "stacked": 892.5
-      },
-      "media": {
-        "kind": "image",
-        "src": "/images/artemis-08.jpg"
-      },
-      "alt": "Artemis — brand identity for a fossil identification app",
-      "title": "Artemis",
-      "note": "Brand Identity, 2026"
-    },
-    {
       "id": "c5-r4",
       "rect": {
         "x": 1169,
-        "y": 1081.3000000000002,
+        "y": 1131.8337577642637,
         "width": 255,
         "height": 360.35
       },
@@ -408,7 +388,7 @@
         "column": 4,
         "gaps": 4,
         "bands": 3,
-        "stacked": 892.5
+        "stacked": 919.0337577642636
       },
       "media": {
         "kind": "image",
@@ -419,10 +399,55 @@
       "note": "Campaign, 2025"
     },
     {
+      "id": "c2-r4",
+      "rect": {
+        "x": 287,
+        "y": 1132.0775069764509,
+        "width": 255,
+        "height": 360.35
+      },
+      "place": {
+        "column": 1,
+        "gaps": 4,
+        "bands": 3,
+        "stacked": 919.2775069764509
+      },
+      "media": {
+        "kind": "image",
+        "src": "/images/molars-02.jpg"
+      },
+      "alt": "Outsmarted My Molars — sticker campaign",
+      "title": "Outsmarted My Molars",
+      "note": "Campaign, 2025"
+    },
+    {
+      "id": "c4-r5",
+      "rect": {
+        "x": 898,
+        "y": 1314.3375,
+        "width": 255,
+        "height": 360.35
+      },
+      "place": {
+        "column": 3,
+        "gaps": 5,
+        "bands": 4,
+        "stacked": 1035.9375
+      },
+      "media": {
+        "kind": "video",
+        "src": "/images/motion-03.mp4",
+        "poster": "/images/motion-03-poster.webp"
+      },
+      "alt": "Motion study",
+      "title": "Motion",
+      "note": "3D & Motion, 2026"
+    },
+    {
       "id": "c3-r4",
       "rect": {
         "x": 558,
-        "y": 1438.801098901099,
+        "y": 1484.0984296660963,
         "width": 324,
         "height": 446.6989010989011
       },
@@ -430,7 +455,7 @@
         "column": 2,
         "gaps": 5,
         "bands": 4,
-        "stacked": 1192.401098901099
+        "stacked": 1205.6984296660962
       },
       "media": {
         "kind": "image",
@@ -444,7 +469,7 @@
       "id": "c1-r5",
       "rect": {
         "x": 16,
-        "y": 1457.65,
+        "y": 1502.9473307649973,
         "width": 255,
         "height": 296.6
       },
@@ -452,7 +477,7 @@
         "column": 0,
         "gaps": 5,
         "bands": 4,
-        "stacked": 1211.25
+        "stacked": 1224.5473307649972
       },
       "media": {
         "kind": "image",
@@ -463,54 +488,10 @@
       "note": "Brand Identity, 2025"
     },
     {
-      "id": "c2-r5",
-      "rect": {
-        "x": 287,
-        "y": 1457.65,
-        "width": 255,
-        "height": 360.35
-      },
-      "place": {
-        "column": 1,
-        "gaps": 5,
-        "bands": 4,
-        "stacked": 1211.25
-      },
-      "media": {
-        "kind": "image",
-        "src": "/images/artemis-05.jpg"
-      },
-      "alt": "Artemis — brand identity for a fossil identification app",
-      "title": "Artemis",
-      "note": "Brand Identity, 2026"
-    },
-    {
-      "id": "c4-r5",
-      "rect": {
-        "x": 898,
-        "y": 1457.65,
-        "width": 255,
-        "height": 360.35
-      },
-      "place": {
-        "column": 3,
-        "gaps": 5,
-        "bands": 4,
-        "stacked": 1211.25
-      },
-      "media": {
-        "kind": "video",
-        "src": "/images/motion-03.mp4"
-      },
-      "alt": "Motion study",
-      "title": "Motion",
-      "note": "3D & Motion, 2026"
-    },
-    {
       "id": "c5-r5",
       "rect": {
         "x": 1169,
-        "y": 1457.65,
+        "y": 1516.1837577642636,
         "width": 255,
         "height": 360.35
       },
@@ -518,7 +499,7 @@
         "column": 4,
         "gaps": 5,
         "bands": 4,
-        "stacked": 1211.25
+        "stacked": 1237.7837577642636
       },
       "media": {
         "kind": "image",
@@ -529,54 +510,32 @@
       "note": "Brand Identity, 2026"
     },
     {
-      "id": "c1-r6",
+      "id": "c2-r5",
       "rect": {
-        "x": 16,
-        "y": 1770.25,
+        "x": 287,
+        "y": 1516.4275069764508,
         "width": 255,
         "height": 360.35
       },
       "place": {
-        "column": 0,
-        "gaps": 6,
-        "bands": 5,
-        "stacked": 1466.25
-      },
-      "media": {
-        "kind": "video",
-        "src": "/images/motion-01.mp4"
-      },
-      "alt": "Motion study",
-      "title": "Motion",
-      "note": "3D & Motion, 2026"
-    },
-    {
-      "id": "c2-r6",
-      "rect": {
-        "x": 287,
-        "y": 1834,
-        "width": 255,
-        "height": 296.6
-      },
-      "place": {
         "column": 1,
-        "gaps": 6,
-        "bands": 5,
-        "stacked": 1530
+        "gaps": 5,
+        "bands": 4,
+        "stacked": 1238.027506976451
       },
       "media": {
         "kind": "image",
-        "src": "/images/woka-02.jpg"
+        "src": "/images/artemis-05.jpg"
       },
-      "alt": "woka — the mark set out on its construction grid",
-      "title": "woka",
-      "note": "Brand Identity, 2024"
+      "alt": "Artemis — brand identity for a fossil identification app",
+      "title": "Artemis",
+      "note": "Brand Identity, 2026"
     },
     {
       "id": "c4-r6",
       "rect": {
         "x": 898,
-        "y": 1834,
+        "y": 1698.6875,
         "width": 255,
         "height": 296.6
       },
@@ -584,7 +543,7 @@
         "column": 3,
         "gaps": 6,
         "bands": 5,
-        "stacked": 1530
+        "stacked": 1354.6875
       },
       "media": {
         "kind": "image",
@@ -595,10 +554,33 @@
       "note": "Brand Identity, 2023"
     },
     {
+      "id": "c1-r6",
+      "rect": {
+        "x": 16,
+        "y": 1823.5473307649972,
+        "width": 255,
+        "height": 360.35
+      },
+      "place": {
+        "column": 0,
+        "gaps": 6,
+        "bands": 5,
+        "stacked": 1479.5473307649972
+      },
+      "media": {
+        "kind": "video",
+        "src": "/images/motion-01.mp4",
+        "poster": "/images/motion-01-poster.webp"
+      },
+      "alt": "Motion study",
+      "title": "Motion",
+      "note": "3D & Motion, 2026"
+    },
+    {
       "id": "c5-r6",
       "rect": {
         "x": 1169,
-        "y": 1834,
+        "y": 1900.5337577642636,
         "width": 255,
         "height": 296.6
       },
@@ -606,7 +588,7 @@
         "column": 4,
         "gaps": 6,
         "bands": 5,
-        "stacked": 1530
+        "stacked": 1556.5337577642636
       },
       "media": {
         "kind": "image",
@@ -617,10 +599,32 @@
       "note": "Brand Identity, 2025"
     },
     {
+      "id": "c2-r6",
+      "rect": {
+        "x": 287,
+        "y": 1900.7775069764507,
+        "width": 255,
+        "height": 296.6
+      },
+      "place": {
+        "column": 1,
+        "gaps": 6,
+        "bands": 5,
+        "stacked": 1556.777506976451
+      },
+      "media": {
+        "kind": "image",
+        "src": "/images/woka-02.jpg"
+      },
+      "alt": "woka — the mark set out on its construction grid",
+      "title": "woka",
+      "note": "Brand Identity, 2024"
+    },
+    {
       "id": "c3-r5",
       "rect": {
         "x": 558,
-        "y": 1901.5000000000002,
+        "y": 1954.7973307649975,
         "width": 324,
         "height": 223.85
       },
@@ -628,21 +632,44 @@
         "column": 2,
         "gaps": 6,
         "bands": 5,
-        "stacked": 1597.5
+        "stacked": 1610.7973307649972
       },
       "media": {
         "kind": "video",
-        "src": "/images/motion-04.mp4"
+        "src": "/images/motion-04.mp4",
+        "poster": "/images/motion-04-poster.webp"
       },
       "alt": "Motion study",
       "title": "Motion",
       "note": "3D & Motion, 2026"
     },
     {
+      "id": "c4-r7",
+      "rect": {
+        "x": 898,
+        "y": 2019.2875,
+        "width": 255,
+        "height": 360.35
+      },
+      "place": {
+        "column": 3,
+        "gaps": 7,
+        "bands": 6,
+        "stacked": 1609.6875
+      },
+      "media": {
+        "kind": "image",
+        "src": "/images/artemis-09.jpg"
+      },
+      "alt": "Artemis — brand identity for a fossil identification app",
+      "title": "Artemis",
+      "note": "Brand Identity, 2026"
+    },
+    {
       "id": "c3-r6",
       "rect": {
         "x": 558,
-        "y": 2141.3500000000004,
+        "y": 2202.6473307649976,
         "width": 324,
         "height": 365.6
       },
@@ -650,7 +677,7 @@
         "column": 2,
         "gaps": 7,
         "bands": 6,
-        "stacked": 1779.75
+        "stacked": 1793.0473307649972
       },
       "media": {
         "kind": "image",
@@ -664,7 +691,7 @@
       "id": "c1-r7",
       "rect": {
         "x": 16,
-        "y": 2146.6,
+        "y": 2207.897330764997,
         "width": 255,
         "height": 360.35
       },
@@ -672,7 +699,7 @@
         "column": 0,
         "gaps": 7,
         "bands": 6,
-        "stacked": 1785
+        "stacked": 1798.2973307649972
       },
       "media": {
         "kind": "image",
@@ -683,10 +710,33 @@
       "note": "Brand Identity, 2026"
     },
     {
+      "id": "c5-r7",
+      "rect": {
+        "x": 1169,
+        "y": 2221.1337577642635,
+        "width": 255,
+        "height": 360.35
+      },
+      "place": {
+        "column": 4,
+        "gaps": 7,
+        "bands": 6,
+        "stacked": 1811.5337577642636
+      },
+      "media": {
+        "kind": "video",
+        "src": "/images/motion-05.mp4",
+        "poster": "/images/motion-05-poster.webp"
+      },
+      "alt": "Motion study",
+      "title": "Motion",
+      "note": "3D & Motion, 2026"
+    },
+    {
       "id": "c2-r7",
       "rect": {
         "x": 287,
-        "y": 2146.6,
+        "y": 2221.3775069764506,
         "width": 255,
         "height": 360.35
       },
@@ -694,7 +744,7 @@
         "column": 1,
         "gaps": 7,
         "bands": 6,
-        "stacked": 1785
+        "stacked": 1811.777506976451
       },
       "media": {
         "kind": "image",
@@ -703,86 +753,42 @@
       "alt": "DABA — the logotype set across a close-up portrait",
       "title": "DABA",
       "note": "Brand Identity, 2024"
-    },
-    {
-      "id": "c4-r7",
-      "rect": {
-        "x": 898,
-        "y": 2146.6,
-        "width": 255,
-        "height": 360.35
-      },
-      "place": {
-        "column": 3,
-        "gaps": 7,
-        "bands": 6,
-        "stacked": 1785
-      },
-      "media": {
-        "kind": "image",
-        "src": "/images/artemis-09.jpg"
-      },
-      "alt": "Artemis — brand identity for a fossil identification app",
-      "title": "Artemis",
-      "note": "Brand Identity, 2026"
-    },
-    {
-      "id": "c5-r7",
-      "rect": {
-        "x": 1169,
-        "y": 2146.6,
-        "width": 255,
-        "height": 360.35
-      },
-      "place": {
-        "column": 4,
-        "gaps": 7,
-        "bands": 6,
-        "stacked": 1785
-      },
-      "media": {
-        "kind": "video",
-        "src": "/images/motion-05.mp4"
-      },
-      "alt": "Motion study",
-      "title": "Motion",
-      "note": "3D & Motion, 2026"
     }
   ],
   "columnMetrics": [
     {
       "gaps": 7,
       "bands": 7,
-      "stacked": 2103.75
+      "stacked": 2117.0473307649972
     },
     {
       "gaps": 7,
       "bands": 7,
-      "stacked": 2103.75
+      "stacked": 2130.527506976451
     },
     {
       "gaps": 7,
       "bands": 7,
-      "stacked": 2103.75
+      "stacked": 2117.0473307649972
     },
     {
       "gaps": 7,
       "bands": 7,
-      "stacked": 2103.75
+      "stacked": 1928.4375
     },
     {
       "gaps": 7,
       "bands": 7,
-      "stacked": 2103.75
+      "stacked": 2130.2837577642636
     }
   ],
   "identity": {
-    "height": 209.95969265109898,
+    "height": 223.25702341609622,
     "rect": {
       "x": 558,
-      "y": 327.04140625,
+      "y": 335.04140625,
       "width": 324,
-      "height": 251.55969265109897
+      "height": 264.85702341609624
     },
     "place": {
       "column": 2,
@@ -797,7 +803,7 @@
           "x": 16,
           "y": 16,
           "width": 255,
-          "height": 360.35
+          "height": 373.64733076499726
         },
         "place": {
           "column": 0,
@@ -812,25 +818,10 @@
           "x": 287,
           "y": 16,
           "width": 255,
-          "height": 360.35
+          "height": 373.83017621145376
         },
         "place": {
           "column": 1,
-          "gaps": 1,
-          "bands": 0,
-          "stacked": 0
-        }
-      },
-      {
-        "tile": "c4-r1",
-        "rect": {
-          "x": 898,
-          "y": 16,
-          "width": 255,
-          "height": 360.35
-        },
-        "place": {
-          "column": 3,
           "gaps": 1,
           "bands": 0,
           "stacked": 0
@@ -842,7 +833,7 @@
           "x": 1169,
           "y": 16,
           "width": 255,
-          "height": 360.35
+          "height": 373.64733076499726
         },
         "place": {
           "column": 4,
@@ -852,40 +843,10 @@
         }
       },
       {
-        "tile": "c1-r2",
-        "rect": {
-          "x": 16,
-          "y": 392.35,
-          "width": 255,
-          "height": 296.6
-        },
-        "place": {
-          "column": 0,
-          "gaps": 2,
-          "bands": 1,
-          "stacked": 318.75
-        }
-      },
-      {
-        "tile": "c2-r2",
-        "rect": {
-          "x": 287,
-          "y": 392.35,
-          "width": 255,
-          "height": 360.35
-        },
-        "place": {
-          "column": 1,
-          "gaps": 2,
-          "bands": 1,
-          "stacked": 318.75
-        }
-      },
-      {
         "tile": "c4-r2",
         "rect": {
           "x": 898,
-          "y": 392.35,
+          "y": 225.0375,
           "width": 255,
           "height": 360.35
         },
@@ -893,59 +854,59 @@
           "column": 3,
           "gaps": 2,
           "bands": 1,
-          "stacked": 318.75
+          "stacked": 143.4375
+        }
+      },
+      {
+        "tile": "c1-r2",
+        "rect": {
+          "x": 16,
+          "y": 413.64733076499726,
+          "width": 255,
+          "height": 296.6
+        },
+        "place": {
+          "column": 0,
+          "gaps": 2,
+          "bands": 1,
+          "stacked": 332.04733076499724
         }
       },
       {
         "tile": "c5-r2",
         "rect": {
           "x": 1169,
-          "y": 392.35,
+          "y": 413.64733076499726,
           "width": 255,
-          "height": 360.35
+          "height": 373.58642699926634
         },
         "place": {
           "column": 4,
           "gaps": 2,
           "bands": 1,
-          "stacked": 318.75
+          "stacked": 332.04733076499724
         }
       },
       {
-        "tile": "c1-r3",
-        "rect": {
-          "x": 16,
-          "y": 704.95,
-          "width": 255,
-          "height": 360.35
-        },
-        "place": {
-          "column": 0,
-          "gaps": 3,
-          "bands": 2,
-          "stacked": 573.75
-        }
-      },
-      {
-        "tile": "c2-r3",
+        "tile": "c2-r2",
         "rect": {
           "x": 287,
-          "y": 768.7,
+          "y": 413.83017621145376,
           "width": 255,
-          "height": 296.6
+          "height": 373.64733076499726
         },
         "place": {
           "column": 1,
-          "gaps": 3,
-          "bands": 2,
-          "stacked": 637.5
+          "gaps": 2,
+          "bands": 1,
+          "stacked": 332.23017621145374
         }
       },
       {
         "tile": "c4-r3",
         "rect": {
           "x": 898,
-          "y": 768.7,
+          "y": 609.3875,
           "width": 255,
           "height": 296.6
         },
@@ -953,14 +914,29 @@
           "column": 3,
           "gaps": 3,
           "bands": 2,
-          "stacked": 637.5
+          "stacked": 462.1875
+        }
+      },
+      {
+        "tile": "c1-r3",
+        "rect": {
+          "x": 16,
+          "y": 734.2473307649973,
+          "width": 255,
+          "height": 360.35
+        },
+        "place": {
+          "column": 0,
+          "gaps": 3,
+          "bands": 2,
+          "stacked": 587.0473307649972
         }
       },
       {
         "tile": "c5-r3",
         "rect": {
           "x": 1169,
-          "y": 768.7,
+          "y": 811.2337577642636,
           "width": 255,
           "height": 296.6
         },
@@ -968,14 +944,44 @@
           "column": 4,
           "gaps": 3,
           "bands": 2,
-          "stacked": 637.5
+          "stacked": 664.0337577642636
+        }
+      },
+      {
+        "tile": "c2-r3",
+        "rect": {
+          "x": 287,
+          "y": 811.477506976451,
+          "width": 255,
+          "height": 296.6
+        },
+        "place": {
+          "column": 1,
+          "gaps": 3,
+          "bands": 2,
+          "stacked": 664.2775069764509
+        }
+      },
+      {
+        "tile": "c4-r4",
+        "rect": {
+          "x": 898,
+          "y": 929.9875000000001,
+          "width": 255,
+          "height": 360.35
+        },
+        "place": {
+          "column": 3,
+          "gaps": 4,
+          "bands": 3,
+          "stacked": 717.1875
         }
       },
       {
         "tile": "c3-r3",
         "rect": {
           "x": 558,
-          "y": 1057.2010989010992,
+          "y": 1094.4984296660964,
           "width": 324,
           "height": 365.6
         },
@@ -983,14 +989,14 @@
           "column": 2,
           "gaps": 4,
           "bands": 3,
-          "stacked": 868.401098901099
+          "stacked": 881.6984296660962
         }
       },
       {
         "tile": "c1-r4",
         "rect": {
           "x": 16,
-          "y": 1081.3000000000002,
+          "y": 1118.5973307649974,
           "width": 255,
           "height": 360.35
         },
@@ -998,44 +1004,14 @@
           "column": 0,
           "gaps": 4,
           "bands": 3,
-          "stacked": 892.5
-        }
-      },
-      {
-        "tile": "c2-r4",
-        "rect": {
-          "x": 287,
-          "y": 1081.3000000000002,
-          "width": 255,
-          "height": 360.35
-        },
-        "place": {
-          "column": 1,
-          "gaps": 4,
-          "bands": 3,
-          "stacked": 892.5
-        }
-      },
-      {
-        "tile": "c4-r4",
-        "rect": {
-          "x": 898,
-          "y": 1081.3000000000002,
-          "width": 255,
-          "height": 360.35
-        },
-        "place": {
-          "column": 3,
-          "gaps": 4,
-          "bands": 3,
-          "stacked": 892.5
+          "stacked": 905.7973307649972
         }
       },
       {
         "tile": "c5-r4",
         "rect": {
           "x": 1169,
-          "y": 1081.3000000000002,
+          "y": 1131.8337577642637,
           "width": 255,
           "height": 360.35
         },
@@ -1043,14 +1019,44 @@
           "column": 4,
           "gaps": 4,
           "bands": 3,
-          "stacked": 892.5
+          "stacked": 919.0337577642636
+        }
+      },
+      {
+        "tile": "c2-r4",
+        "rect": {
+          "x": 287,
+          "y": 1132.0775069764509,
+          "width": 255,
+          "height": 360.35
+        },
+        "place": {
+          "column": 1,
+          "gaps": 4,
+          "bands": 3,
+          "stacked": 919.2775069764509
+        }
+      },
+      {
+        "tile": "c4-r5",
+        "rect": {
+          "x": 898,
+          "y": 1314.3375,
+          "width": 255,
+          "height": 360.35
+        },
+        "place": {
+          "column": 3,
+          "gaps": 5,
+          "bands": 4,
+          "stacked": 1035.9375
         }
       },
       {
         "tile": "c3-r4",
         "rect": {
           "x": 558,
-          "y": 1438.801098901099,
+          "y": 1484.0984296660963,
           "width": 324,
           "height": 446.6989010989011
         },
@@ -1058,14 +1064,14 @@
           "column": 2,
           "gaps": 5,
           "bands": 4,
-          "stacked": 1192.401098901099
+          "stacked": 1205.6984296660962
         }
       },
       {
         "tile": "c1-r5",
         "rect": {
           "x": 16,
-          "y": 1457.65,
+          "y": 1502.9473307649973,
           "width": 255,
           "height": 296.6
         },
@@ -1073,44 +1079,14 @@
           "column": 0,
           "gaps": 5,
           "bands": 4,
-          "stacked": 1211.25
-        }
-      },
-      {
-        "tile": "c2-r5",
-        "rect": {
-          "x": 287,
-          "y": 1457.65,
-          "width": 255,
-          "height": 360.35
-        },
-        "place": {
-          "column": 1,
-          "gaps": 5,
-          "bands": 4,
-          "stacked": 1211.25
-        }
-      },
-      {
-        "tile": "c4-r5",
-        "rect": {
-          "x": 898,
-          "y": 1457.65,
-          "width": 255,
-          "height": 360.35
-        },
-        "place": {
-          "column": 3,
-          "gaps": 5,
-          "bands": 4,
-          "stacked": 1211.25
+          "stacked": 1224.5473307649972
         }
       },
       {
         "tile": "c5-r5",
         "rect": {
           "x": 1169,
-          "y": 1457.65,
+          "y": 1516.1837577642636,
           "width": 255,
           "height": 360.35
         },
@@ -1118,44 +1094,29 @@
           "column": 4,
           "gaps": 5,
           "bands": 4,
-          "stacked": 1211.25
+          "stacked": 1237.7837577642636
         }
       },
       {
-        "tile": "c1-r6",
+        "tile": "c2-r5",
         "rect": {
-          "x": 16,
-          "y": 1770.25,
+          "x": 287,
+          "y": 1516.4275069764508,
           "width": 255,
           "height": 360.35
         },
         "place": {
-          "column": 0,
-          "gaps": 6,
-          "bands": 5,
-          "stacked": 1466.25
-        }
-      },
-      {
-        "tile": "c2-r6",
-        "rect": {
-          "x": 287,
-          "y": 1834,
-          "width": 255,
-          "height": 296.6
-        },
-        "place": {
           "column": 1,
-          "gaps": 6,
-          "bands": 5,
-          "stacked": 1530
+          "gaps": 5,
+          "bands": 4,
+          "stacked": 1238.027506976451
         }
       },
       {
         "tile": "c4-r6",
         "rect": {
           "x": 898,
-          "y": 1834,
+          "y": 1698.6875,
           "width": 255,
           "height": 296.6
         },
@@ -1163,14 +1124,29 @@
           "column": 3,
           "gaps": 6,
           "bands": 5,
-          "stacked": 1530
+          "stacked": 1354.6875
+        }
+      },
+      {
+        "tile": "c1-r6",
+        "rect": {
+          "x": 16,
+          "y": 1823.5473307649972,
+          "width": 255,
+          "height": 360.35
+        },
+        "place": {
+          "column": 0,
+          "gaps": 6,
+          "bands": 5,
+          "stacked": 1479.5473307649972
         }
       },
       {
         "tile": "c5-r6",
         "rect": {
           "x": 1169,
-          "y": 1834,
+          "y": 1900.5337577642636,
           "width": 255,
           "height": 296.6
         },
@@ -1178,14 +1154,29 @@
           "column": 4,
           "gaps": 6,
           "bands": 5,
-          "stacked": 1530
+          "stacked": 1556.5337577642636
+        }
+      },
+      {
+        "tile": "c2-r6",
+        "rect": {
+          "x": 287,
+          "y": 1900.7775069764507,
+          "width": 255,
+          "height": 296.6
+        },
+        "place": {
+          "column": 1,
+          "gaps": 6,
+          "bands": 5,
+          "stacked": 1556.777506976451
         }
       },
       {
         "tile": "c3-r5",
         "rect": {
           "x": 558,
-          "y": 1901.5000000000002,
+          "y": 1954.7973307649975,
           "width": 324,
           "height": 223.85
         },
@@ -1193,59 +1184,14 @@
           "column": 2,
           "gaps": 6,
           "bands": 5,
-          "stacked": 1597.5
-        }
-      },
-      {
-        "tile": "c3-r6",
-        "rect": {
-          "x": 558,
-          "y": 2141.3500000000004,
-          "width": 324,
-          "height": 365.6
-        },
-        "place": {
-          "column": 2,
-          "gaps": 7,
-          "bands": 6,
-          "stacked": 1779.75
-        }
-      },
-      {
-        "tile": "c1-r7",
-        "rect": {
-          "x": 16,
-          "y": 2146.6,
-          "width": 255,
-          "height": 360.35
-        },
-        "place": {
-          "column": 0,
-          "gaps": 7,
-          "bands": 6,
-          "stacked": 1785
-        }
-      },
-      {
-        "tile": "c2-r7",
-        "rect": {
-          "x": 287,
-          "y": 2146.6,
-          "width": 255,
-          "height": 360.35
-        },
-        "place": {
-          "column": 1,
-          "gaps": 7,
-          "bands": 6,
-          "stacked": 1785
+          "stacked": 1610.7973307649972
         }
       },
       {
         "tile": "c4-r7",
         "rect": {
           "x": 898,
-          "y": 2146.6,
+          "y": 2019.2875,
           "width": 255,
           "height": 360.35
         },
@@ -1253,14 +1199,44 @@
           "column": 3,
           "gaps": 7,
           "bands": 6,
-          "stacked": 1785
+          "stacked": 1609.6875
+        }
+      },
+      {
+        "tile": "c3-r6",
+        "rect": {
+          "x": 558,
+          "y": 2202.6473307649976,
+          "width": 324,
+          "height": 365.6
+        },
+        "place": {
+          "column": 2,
+          "gaps": 7,
+          "bands": 6,
+          "stacked": 1793.0473307649972
+        }
+      },
+      {
+        "tile": "c1-r7",
+        "rect": {
+          "x": 16,
+          "y": 2207.897330764997,
+          "width": 255,
+          "height": 360.35
+        },
+        "place": {
+          "column": 0,
+          "gaps": 7,
+          "bands": 6,
+          "stacked": 1798.2973307649972
         }
       },
       {
         "tile": "c5-r7",
         "rect": {
           "x": 1169,
-          "y": 2146.6,
+          "y": 2221.1337577642635,
           "width": 255,
           "height": 360.35
         },
@@ -1268,26 +1244,34 @@
           "column": 4,
           "gaps": 7,
           "bands": 6,
-          "stacked": 1785
+          "stacked": 1811.5337577642636
+        }
+      },
+      {
+        "tile": "c2-r7",
+        "rect": {
+          "x": 287,
+          "y": 2221.3775069764506,
+          "width": 255,
+          "height": 360.35
+        },
+        "place": {
+          "column": 1,
+          "gaps": 7,
+          "bands": 6,
+          "stacked": 1811.777506976451
         }
       }
     ]
   },
-  "canvasHeight": 2506.9500000000003,
+  "canvasHeight": 2581.7275069764505,
   "titleBand": 41.6,
   "projectIndex": [
     {
-      "title": "Artemis",
-      "discipline": "Brand Identity",
-      "year": "2026",
-      "image": "/images/artemis-01.jpg",
-      "alt": "Artemis — brand identity for a fossil identification app"
-    },
-    {
-      "title": "Motion",
-      "discipline": "3D & Motion",
-      "year": "2026",
-      "alt": "Motion study"
+      "title": "Maison Music Fest",
+      "discipline": "Visual Identity",
+      "image": "/images/homepage/maison-1.webp?v=246735481d18",
+      "alt": "Maison Music Fest — festival poster with a blue and lilac gradient"
     },
     {
       "title": "MO.FOOD",
@@ -1297,11 +1281,11 @@
       "alt": "MO.FOOD — packaging for the dried, ground and smoked shrimp range"
     },
     {
-      "title": "DABA",
-      "discipline": "Brand Identity",
-      "year": "2024",
-      "image": "/images/daba-02.jpg",
-      "alt": "DABA — body wash bottles photographed against the brand's terracotta palette"
+      "title": "Outsmarted My Molars",
+      "discipline": "Campaign",
+      "year": "2025",
+      "image": "/images/molars-03.jpg",
+      "alt": "Outsmarted My Molars — sticker campaign"
     },
     {
       "title": "woka",
@@ -1311,11 +1295,18 @@
       "alt": "woka — the logotype beneath its mark, a sunburst drawn as an open hand"
     },
     {
-      "title": "Outsmarted My Molars",
-      "discipline": "Campaign",
+      "title": "Glass Banking",
+      "discipline": "Brand Identity",
       "year": "2025",
-      "image": "/images/molars-03.jpg",
-      "alt": "Outsmarted My Molars — sticker campaign"
+      "image": "/images/glass-03.jpg",
+      "alt": "Glass Banking — the black payment card, its name showing through the face"
+    },
+    {
+      "title": "Artemis",
+      "discipline": "Brand Identity",
+      "year": "2026",
+      "image": "/images/artemis-06.jpg",
+      "alt": "Artemis — brand identity for a fossil identification app"
     },
     {
       "title": "Tech for the World Forum",
@@ -1325,11 +1316,10 @@
       "alt": "Tech for the World Forum — the stacked logotype beneath its globe mark"
     },
     {
-      "title": "Glass Banking",
-      "discipline": "Brand Identity",
-      "year": "2025",
-      "image": "/images/glass-03.jpg",
-      "alt": "Glass Banking — the black payment card, its name showing through the face"
+      "title": "Motion",
+      "discipline": "3D & Motion",
+      "year": "2026",
+      "alt": "Motion study"
     },
     {
       "title": "Nomadi",
@@ -1337,6 +1327,13 @@
       "year": "2023",
       "image": "/images/nomadi-01.jpg",
       "alt": "Nomadi — the wordmark over a portrait at the shoreline"
+    },
+    {
+      "title": "DABA",
+      "discipline": "Brand Identity",
+      "year": "2024",
+      "image": "/images/daba-01.jpg",
+      "alt": "DABA — the logotype set across a close-up portrait"
     }
   ]
 }

@@ -108,7 +108,11 @@ export function Nav({
       data-open={open ? "" : undefined}
       aria-label="Primary"
     >
-      <ul className={styles.list} id={listId} data-nav-list={listId}>
+      <ul
+        className={styles.list}
+        id={listId}
+        data-nav-list={listId}
+      >
         {navItems.map((item) => {
           const isCurrent = item.href === route;
           const isShowing = item.href === showing;

@@ -9,7 +9,11 @@
     "lint": "eslint",
     "grid:freeze": "tsx scripts/freeze-grid.ts",
     "grid:check": "tsx scripts/freeze-grid.ts --check",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "media:metadata": "node scripts/media-metadata.mjs",
+    "predev": "npm run media:metadata && npm run media:gallery",
+    "prebuild": "npm run media:metadata && npm run media:gallery",
+    "media:gallery": "node scripts/gallery-images.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

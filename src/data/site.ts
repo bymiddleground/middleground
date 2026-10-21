@@ -58,7 +58,7 @@ export const absoluteUrl = (path: string) =>
  */
 export const socialProfiles = [
   "https://www.instagram.com/by_middleground",
-  "https://x.com/bymiddleground",
+  "https://x.com/by_middleground",
   "https://www.linkedin.com/company/bymiddleground/",
 ];
 
@@ -144,7 +144,7 @@ export const disciplinePairs: Discipline[][] = disciplines.reduce<
 }, []);
 
 /** Where a call is booked, which is what the disciplines lead to. */
-export const bookingUrl = "https://calendly.com/abelidume/project-inquiries";
+export const bookingUrl = "https://cal.com/abelidume/30min";
 
 /** Who leads the work (node 2075:51). */
 export const aboutLead =
@@ -176,7 +176,7 @@ export const contactLinks: ContactLink[] = [
     href: "mailto:hello@middleground.design",
   },
   { label: "IG: @by_middleground", href: "https://www.instagram.com/by_middleground" },
-  { label: "x: @bymiddleground", href: "https://x.com/bymiddleground" },
+  { label: "X: @BY_MIDDLEGROUND", href: "https://x.com/by_middleground" },
   {
     label: "L’in: @bymiddleground",
     href: "https://www.linkedin.com/company/bymiddleground/",

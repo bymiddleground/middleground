@@ -1,11 +1,10 @@
+import { PillLink } from "@/components/PillLink";
 import { Intro, MOSAIC_DELAY } from "@/components/Intro";
 import { Mosaic } from "@/components/Mosaic";
 import { Monogram } from "@/components/Monogram";
-import { Nav } from "@/components/Nav";
-import { ShyBand } from "@/components/ShyBand";
-import { PillLink } from "@/components/PillLink";
+import { CursorPill } from "@/components/CursorPill";
+import { Torch } from "@/components/Torch";
 import { Stamps } from "@/components/Stamps";
-import { StickyPill } from "@/components/StickyPill";
 import { absoluteUrl, bookingUrl, site } from "@/data/site";
 import { projectIndex } from "@/data/projects";
 import {
@@ -19,9 +18,6 @@ import {
 import type { Metadata } from "next";
 
 import styles from "./home.module.css";
-
-/** Column three of the five, which the panel takes over. */
-const PANEL_COLUMN = 2;
 
 /*
  * No title of its own: the homepage takes the default rather than putting a
@@ -74,6 +70,13 @@ const schema = {
   ],
 };
 
+const PILL_TONES = [
+  "var(--color-tone-paper)", "var(--color-tone-lilac)",
+  "var(--color-tone-sky)", "var(--color-tone-coral)",
+  "var(--color-tone-mint)", "var(--color-tone-butter)",
+  "var(--color-tone-blossom)",
+];
+
 export default function Home() {
   return (
     <>
@@ -92,37 +95,36 @@ export default function Home() {
         {/* The mark, stamped wherever the column is clicked. */}
         <Stamps />
 
-        <ShyBand className={styles.nav} intro>
-          <Nav minimal />
-        </ShyBand>
-        <Monogram className={styles.mark} intro />
+        <div className={styles.topbar} aria-hidden="true" />
         <div className={styles.below}>
-          <p className={styles.tagline} data-intro="rest">
-            {site.tagline}
-          </p>
-          <div className={styles.cta} data-intro="rest" data-cta="">
-            <PillLink href={bookingUrl} label="REACH OUT" />
-          </div>
+          <Monogram className={styles.mark} intro />
+          <Torch className={`${styles.introBooking} ${styles.desktopIntroCopy}`} palette={PILL_TONES} parts="[data-part]">
+            <a className={styles.introBookingLink} href={bookingUrl} target="_blank" rel="noreferrer" aria-label="Book a call with MiddleGround">
+          <h2 className={styles.headline} data-intro="rest" data-part="">
+            <span className={styles.studioName}>MiddleGround</span>
+            {site.tagline.slice("MiddleGround".length)}
+          </h2>
+            </a>
+            <CursorPill label="BOOK A CALL" />
+          </Torch>
+          <h2 className={`${styles.headline} ${styles.mobileIntroCopy}`} data-intro="rest">
+            <span className={styles.studioName}>MiddleGround</span>
+            {site.tagline.slice("MiddleGround".length)}
+          </h2>
         </div>
       </div>
 
       <h2 className="visually-hidden">Selected work</h2>
 
       <Mosaic
-        skipColumn={PANEL_COLUMN}
         identity={false}
+        flow
         delay={MOSAIC_DELAY}
-        clearFoot
       />
 
-      {/*
-        The same way on, held at the foot of the screen once the panel has been
-        scrolled past. It only ever shows on a phone, where the panel travels
-        with the page instead of standing still beside the work.
-      */}
-      <StickyPill watch="[data-cta]" className={styles.held}>
-        <PillLink href={bookingUrl} label="REACH OUT" />
-      </StickyPill>
+      <div className={styles.mobileReachOut}>
+        <PillLink href="/contact" label="REACH OUT" />
+      </div>
     </>
   );
 }

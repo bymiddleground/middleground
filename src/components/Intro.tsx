@@ -44,22 +44,42 @@ export function Intro({ id }: { id: string }) {
       return;
     }
 
-    played.add(id);
-
     return whenVisible(() => {
-      const context = gsap.context(() => {
-        // Where the mark would have to sit to be centred on the screen. Both
-        // are viewport coordinates: the page may well be restored part-way
-        // down on a reload, and the mark should still fly to the middle of
-        // what the visitor is actually looking at.
+      let context: ReturnType<typeof gsap.context> | undefined;
+      let frame = 0;
+      const reveal = () => {
+        context?.revert();
+        window.removeEventListener("scroll", onScroll);
+        markRevealed(everything);
+        played.add(id);
+      };
+      const onScroll = () => { if (window.scrollY > 4) reveal(); };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      // Give the browser time to restore its saved position before starting.
+      frame = requestAnimationFrame(() => {
+        frame = requestAnimationFrame(() => {
+          if (window.scrollY > 4 || played.has(id)) {
+            reveal();
+            return;
+          }
+          context = gsap.context(() => {
+        // Anchor the opening to the top of the document, never the restored viewport.
         const box = mark.getBoundingClientRect();
         const shift = {
           x: window.innerWidth / 2 - box.width / 2 - box.left,
-          y: window.innerHeight / 2 - box.height / 2 - box.top,
+          y: window.innerHeight / 2 - box.height / 2 - (box.top + window.scrollY),
         };
 
         gsap
-          .timeline({ onComplete: () => markRevealed(everything) })
+          .timeline({
+            onComplete: () => {
+              // An interrupted opening (including React's development effect
+              // replay) hasn't been seen yet and must be allowed to restart.
+              played.add(id);
+              window.removeEventListener("scroll", onScroll);
+              markRevealed(everything);
+            },
+          })
           .fromTo(
             mark,
             { opacity: 0, scale: 0.7, x: shift.x, y: shift.y },
@@ -74,7 +94,13 @@ export function Intro({ id }: { id: string }) {
           );
       });
 
-      return () => context.revert();
+        });
+      });
+      return () => {
+        cancelAnimationFrame(frame);
+        window.removeEventListener("scroll", onScroll);
+        context?.revert();
+      };
     });
   }, [id]);
 

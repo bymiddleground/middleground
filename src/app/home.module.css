@@ -1,287 +1,90 @@
-/*
- * The homepage (node 2068:176).
- *
- * The studio's name, its line and the navigation take the middle column and
- * stay put while the mosaic runs past on either side. The mosaic carries no
- * tiles in that column, so nothing ever passes behind the panel.
- */
-.panel {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  /*
-   * Column three of the same grid the mosaic is built on — the middle one, so
-   * it is simply centred. Measured in the mosaic's own unit rather than the
-   * page's zoom, or past 1920 it would stop growing while its column carried
-   * on without it.
-   */
-  left: calc(50% - var(--centre) * var(--u) / 2);
-  width: calc(var(--centre) * var(--u));
-  z-index: 2;
-  /*
-   * The column answers to the pointer, so that clicking anywhere in it leaves
-   * a mark. Nothing of the work stands behind it — the mosaic skips this column
-   * on the homepage — so there is nothing underneath left wanting the click.
-   */
-  pointer-events: auto;
+/* A compact introduction above a full-width wall of work. */
+.panel { position: relative; width: 100%; padding: 28px 32px 80px; }
+.topbar { display: flex; align-items: flex-start; justify-content: center; min-height: 44px; }
+.mark { width: 96px; height: 96px; }
+.horizontalLogo { display: block; width: 180px; max-width: 100%; height: auto; }
+/* Adobe currently serves Regular for its Medium URL; use the verified Medium face. */
+.headline { max-width: 570px; margin: 0; font-family: "Articulat CF", var(--font-sans); font-size: 32px; font-weight: 500; line-height: 1.2; letter-spacing: 0px; text-align: center; text-wrap: balance; }
+.studioName { font-family: var(--font-sans); font-weight: 600; }
+.mobileNav { display: none; }
+.nav { display: flex; justify-content: center; position: relative; width: 100%; height: 44px; z-index: 4; pointer-events: none; }
+/* Let the menu expand over the page without changing the header height. */
+.nav > nav { pointer-events: auto; position: absolute; top: calc(36 * var(--s) - 28px); left: 50%; transform: translateX(-50%); }
+.below { display: flex; flex-direction: column; align-items: center; gap: 64px; padding-top: 96px; }
+.tagline { max-width: 520px; margin: 0; font-family: var(--font-sans); font-weight: 500; font-size: 20px; line-height: 1.5; letter-spacing: -0.02em; color: var(--color-muted); text-align: center; }
+.cta { display: flex; justify-content: center; }
+.held { display: none; }
 
-  /*
-   * The mark's size and where it sits, in design pixels. Both are stated here
-   * because the tagline's own position is measured from them — change the size
-   * and the line keeps its distance below the mark on its own.
-   */
-  --mark-size: 120;
-  --mark-top: 260;
-  /* What the studio's name holds above its line everywhere else on the site. */
-  --line-gap: 190;
-}
 
-/*
- * A window wide for its height cannot hold the column at the design's
- * spacing: the line is measured down from the top and the way on up from the
- * bottom, and past this ratio they run out of room between them and the way
- * on goes off the foot of the screen. The mark comes up and the gap below it
- * closes, which is the same composition, tighter.
- *
- * Stated as a ratio rather than a height because the whole panel scales with
- * the width — a tall enough window at 1440 is a short one at 1920.
- */
-@media (min-width: 1200px) and (min-aspect-ratio: 1440 / 780) {
-  .panel {
-    --mark-top: 180;
-    --line-gap: 150;
-  }
-}
-
-/* Only the things themselves take the pointer, not the column around them. */
-
-/*
- * The navigation leads the panel, sitting where it does on every other page —
- * 36px down from the top edge.
- */
-.nav {
-  position: absolute;
-  top: calc(36 * var(--s));
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.mark {
-  position: absolute;
-  /* Below the navigation, with room to breathe. Nudge --mark-top to taste. */
-  top: calc(var(--mark-top) * var(--s));
-  left: calc(50% - var(--mark-size) / 2 * var(--s));
-  width: calc(var(--mark-size) * var(--s));
-  height: calc(var(--mark-size) * var(--s));
-}
-
-/*
- * Everything below the mark, in one column running from the line's own place
- * down to the foot of the panel.
- *
- * The line is measured from the top of the screen and the way on from the
- * bottom, so on a short window the two would meet in the middle. Holding both
- * in a column instead means the way on takes the space left over and, when
- * there is none, simply follows the line down.
- */
-.below {
-  position: absolute;
-  /*
-   * The mark's foot plus the 190px the studio's name holds above its line
-   * everywhere else on the site.
-   */
-  top: calc((var(--mark-top) + var(--mark-size) + var(--line-gap)) * var(--s));
-  bottom: calc(56 * var(--s));
-  /*
-   * The width of its own column, which is the 324 the line is set to and the
-   * panel already is — so the gutter either side stands empty between it and
-   * the work beside it.
-   */
-  left: 0;
-  right: 0;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  /* The least that may ever stand between the line and the way on. */
-  gap: calc(40 * var(--s));
-}
-
-.tagline {
-  /*
-   * The line is set at a width as it is at a size — 324px, whatever the column
-   * around it comes to — and centred in whatever room is left.
-   */
-  max-width: 324px;
-  margin: 0 auto;
-  font-family: var(--font-sans);
-  /* The medium cut, which is loaded alongside the regular. */
-  font-weight: 500;
-  /*
-   * 23px flat, not 23 of the design's units: this is the one line on the page
-   * asked for at a size rather than a proportion, so it reads the same however
-   * wide the window is.
-   */
-  font-size: 23px;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  color: var(--color-ink);
-  text-align: center;
-}
-
-/*
- * The way on, at the foot of the column rather than under the line: the panel
- * holds the full height of the screen, and putting it low leaves the mark and
- * the line the middle to themselves.
- */
-.cta {
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-}
-
-/*
- * The way on, held at the foot of the screen. It is only ever wanted where the
- * panel travels with the page — on the desktop page the panel stands still and
- * its own pill never leaves, so this one does not exist.
- */
-.held {
-  display: none;
+@media (max-width: 1023px) {
+  .desktopNav { display: none; }
+  .mobileNav { display: block; }
 }
 
 @media (max-width: 1199px) {
+  .nav > nav { top: -16px; }
+}
+
+@media (max-width: 767px) {
+  .panel { padding: max(16px, env(safe-area-inset-top)) 16px 48px; }
+  .topbar { min-height: 44px; }
+  .mark { width: 72px; height: 72px; }
+  .horizontalLogo { width: 120px; }
+  .desktopNav { display: none; }
+  .mobileNav { display: block; }
+  .nav { min-width: 0; --s: 1px; }
+  .nav > nav { top: calc(max(12px, env(safe-area-inset-top)) - max(16px, env(safe-area-inset-top))); }
+  .below { padding-top: 72px; gap: 48px; }
+  .headline { font-size: 24px; }
+  .tagline { max-width: 32ch; font-size: 18px; }
   .held {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 3;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    /*
-     * A band at the foot of the screen rather than a bar: it needs depth for
-     * the blur to come on gradually through it.
-     */
-    height: var(--foot-band);
-    padding-bottom: max(20px, env(safe-area-inset-bottom));
-    /* Its ground deepens towards the foot — see [data-band] in globals.css. */
-    --band: to bottom;
-    --band-ink: to top;
-    /* It is a way on, not a lid over the work behind it. */
-    pointer-events: none;
-    opacity: 0;
-    translate: 0 20px;
-    transition:
-      opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
-      translate 560ms cubic-bezier(0.22, 1, 0.36, 1);
+    position: fixed; inset: auto 0 0; z-index: 3;
+    display: flex; align-items: flex-end; justify-content: center;
+    height: var(--foot-band); padding-bottom: max(20px, env(safe-area-inset-bottom));
+    --band: to bottom; --band-ink: to top;
+    pointer-events: none; opacity: 0; translate: 0 20px;
+    transition: opacity 420ms ease, translate 420ms cubic-bezier(0.22, 1, 0.36, 1);
   }
-
-  .held > * {
-    pointer-events: auto;
-  }
-
-  /*
-   * Shown once the pill in the page has gone off the top, and stood down the
-   * moment it comes back — the two are never on screen together.
-   */
-  .held[data-shown] {
-    opacity: 1;
-    translate: 0 0;
-  }
-
-  /*
-   * No middle column to sit in once the mosaic reflows, so the panel leads the
-   * page instead and scrolls with it.
-   */
-  .panel {
-    /* Still the surface the marks are laid on, so still a frame for them. */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    left: auto;
-    /* The foot of the band is what separates the line from the grid. */
-    padding: max(12px, env(safe-area-inset-top)) var(--gutter) 88px;
-  }
-
-  /* The navigation is not in this list: it holds at the top, below. */
-  .mark,
-  .tagline {
-    position: static;
-    left: auto;
-    right: auto;
-    width: auto;
-  }
-
-  /*
-   * The homepage carries its navigation inside the panel, and the panel
-   * travels with the page down here — so on its own the navigation would
-   * scroll away, where every other page keeps it. It comes out of the flow and
-   * holds at the top of the screen instead, on the same ground as the rest.
-   */
-  .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 4;
-    padding: max(12px, env(safe-area-inset-top))
-      max(var(--gutter), env(safe-area-inset-right)) 12px
-      max(var(--gutter), env(safe-area-inset-left));
-    transition:
-      translate 420ms cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 300ms ease;
-  }
-
-  /*
-   * Out of the way while the page is going down, and back the moment it turns
-   * round — see ShyBand. It leaves by the top edge it is fixed to, so it does
-   * not cross the work on its way out.
-   */
-  .nav[data-away] {
-    translate: 0 -100%;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .mark {
-    width: 80px;
-    height: 80px;
-    margin: 72px auto 0;
-  }
-
-  .tagline {
-    max-width: 32ch;
-    margin: 56px auto 0;
-    font-size: clamp(19px, 5.8vw, 23px);
-    letter-spacing: -0.46px;
-  }
-
-  /*
-   * No foot of the screen to sit at once the band scrolls with the page: the
-   * line and the way on take their places in the band itself, so the column
-   * that held them apart steps out of the way.
-   */
-  .below {
-    display: contents;
-  }
-
-  .cta {
-    margin-top: 40px;
-  }
+  .held > * { pointer-events: auto; }
+  .held[data-shown] { opacity: 1; translate: 0 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  /* They fade, without the movement. */
-  .held,
-  .nav {
-    transition: opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
-    translate: 0 0;
-  }
+  .held { translate: none; transition: opacity 200ms ease; }
+}
 
-  .nav[data-away] {
-    translate: 0 0;
+@media (max-width: 380px) {
+  .topbar { gap: 8px; }
+  .horizontalLogo { width: 100px; }
+  .nav :global(ul) { gap: 4px; }
+  .nav :global(a) { padding-inline: 8px; font-size: 11px; }
+}
+
+/* Reuse the About page's cursor pill over the introduction itself. */
+.introBooking { position: relative; max-width: 570px; --tx: 50%; --ty: 50%; }
+.introBookingLink { display: block; color: inherit; text-decoration: none; }
+@media (min-width: 1200px) and (hover: hover) {
+  .introBooking[data-lit], .introBooking[data-lit] * { cursor: none; }
+}
+
+.mobileReachOut { display: none; }
+@media (max-width: 767px) {
+  .mobileReachOut {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: max(20px, env(safe-area-inset-bottom));
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
   }
+  .mobileReachOut > a { pointer-events: auto; box-shadow: 0 4px 24px rgb(0 0 0 / 25%); }
+  .mobileReachOut::before { content: ""; position: absolute; inset: -16px 0 -32px; z-index: -1; background: linear-gradient(transparent, rgb(0 0 0 / 65%)); }
+}
+
+.mobileIntroCopy { display: none; }
+@media (max-width: 767px) {
+  .desktopIntroCopy { display: none; }
+  .mobileIntroCopy { display: block; }
 }

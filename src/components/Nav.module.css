@@ -31,6 +31,7 @@
   border-radius: calc(54 * var(--s));
   background-color: var(--color-pill);
   color: var(--color-pill-ink);
+  backdrop-filter: blur(14px);
   /* The pill you are on is a button where the stack opens on a tap. */
   border: 0;
   font: inherit;
@@ -41,32 +42,20 @@
   white-space: nowrap;
   transition:
     background-color var(--nav-duration) var(--nav-ease),
-    color var(--nav-duration) var(--nav-ease);
+    color var(--nav-duration) var(--nav-ease),
+    box-shadow var(--nav-duration) var(--nav-ease);
 }
 
-.pill:hover {
+.pill:hover,
+.pill:focus-visible {
   background-color: var(--color-pill-active);
+  color: var(--color-pill-ink);
 }
 
-/*
- * The page you are on stands down to a tenth of white while the other two
- * stay filled, so the one pill that leads nowhere is the quiet one.
- *
- * Keyed to data-active rather than aria-current: the look leads the navigation
- * by the length of the page transition, while aria-current waits for the route
- * to actually commit. It sits after the hover rule and at the same weight, so
- * hovering the page you are on leaves it as it is rather than filling it back
- * in — on a touch screen that pill is the button that opens the stack.
- */
+/* The current page is frosted; the other destinations stay white. */
 .pill[data-active] {
   background-color: var(--color-pill-quiet);
   color: var(--color-pill-quiet-ink);
-  /*
-   * A tenth of white over whatever it is standing on, and that taken right
-   * down: the pill for the page you are already on reads as frosted rather
-   * than as a shape someone might press.
-   */
-  backdrop-filter: blur(14px);
 }
 
 @media (max-width: 1199px) {
@@ -134,7 +123,7 @@
 }
 
 .minimal:hover .item,
-.minimal:focus-within .item,
+.minimal:has(:focus-visible) .item,
 .minimal[data-open] .item {
   height: var(--pill-height);
   margin-top: calc(12 * var(--s));
@@ -152,7 +141,7 @@
 
 .minimal .item:has([data-active]),
 .minimal:hover .item:has([data-active]),
-.minimal:focus-within .item:has([data-active]),
+.minimal:has(:focus-visible) .item:has([data-active]),
 .minimal[data-open] .item:has([data-active]) {
   height: var(--pill-height);
   margin-top: 0;

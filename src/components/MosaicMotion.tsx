@@ -46,7 +46,7 @@ export function MosaicMotion({ delay = 0 }: { delay?: number } = {}) {
             duration: 0.9,
             ease: EASE,
             stagger: 0.045,
-            delay,
+            delay: window.scrollY > 4 ? 0 : delay,
             onComplete: () => markRevealed(tiles),
           },
         );
