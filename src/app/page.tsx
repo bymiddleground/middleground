@@ -1,4 +1,5 @@
 import { PillLink } from "@/components/PillLink";
+import { DesktopReachOut } from "@/components/DesktopReachOut";
 import { Intro, MOSAIC_DELAY } from "@/components/Intro";
 import { Mosaic } from "@/components/Mosaic";
 import { Monogram } from "@/components/Monogram";
@@ -125,6 +126,7 @@ export default function Home() {
       <div className={styles.mobileReachOut}>
         <PillLink href="/contact" label="REACH OUT" />
       </div>
+      <DesktopReachOut />
     </>
   );
 }

@@ -30,7 +30,7 @@ export function FlowScroll() {
       const ramp = progress * progress * (3 - 2 * progress);
       groups.forEach((group, column) => {
         // Bounded drift avoids accumulating huge offsets on a long page.
-        const offset = Math.sin(distance * rates[column % rates.length] / 72) * 25.2 * ramp;
+        const offset = Math.sin(distance * rates[column % rates.length] / 72) * 27.72 * ramp;
         group.forEach(tile => { tile.style.translate = `0 ${offset}px`; });
       });
     };
