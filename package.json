@@ -13,7 +13,9 @@
     "media:metadata": "node scripts/media-metadata.mjs",
     "predev": "npm run media:metadata && npm run media:gallery",
     "prebuild": "npm run media:metadata && npm run media:gallery",
-    "media:gallery": "node scripts/gallery-images.mjs"
+    "media:gallery": "node scripts/gallery-images.mjs",
+    "media:import": "node scripts/import-homepage-media.mjs",
+    "media:check": "tsx scripts/check-homepage-media.ts"
   },
   "dependencies": {
     "gsap": "^3.15.0",

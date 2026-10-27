@@ -5,8 +5,8 @@ import sharp from "sharp";
 const images = path.resolve("public/images");
 async function build(directory) {
   for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
-    if (entry.name === "gallery") continue;
     const source = path.join(directory, entry.name);
+    if (source === path.join(images, "gallery")) continue;
     if (entry.isDirectory()) { await build(source); continue; }
     if (!/\.(jpe?g|png|webp|avif)$/i.test(entry.name) || /-poster\./i.test(entry.name)) continue;
     const relative = path.relative(images, source).replace(/\.[^/.]+$/, "");

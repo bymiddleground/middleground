@@ -1,4 +1,4 @@
-import dimensions from "./media-dimensions.json";
+import { maisonGrid, maisonGallery } from "./homepage-media";
 import {
   CENTRE_COLUMN,
   CENTRE_WIDTH,
@@ -223,46 +223,23 @@ function artworkHeight(column: number, ratio: number) {
   return COLUMN_WIDTHS[column] / ratio;
 }
 
-/** Native dimensions are generated from the actual optimized files before dev/build.
- * No cropping or padding is needed to fit a predetermined tile shape.
- */
-const maisonImages = { 1: dimensions["maison-1.webp"], 3: dimensions["maison-3.webp"], 7: dimensions["maison-7.webp"], 8: dimensions["maison-8.webp"] } as const;
-const maisonVideos = { orbs: dimensions["maison-orbs.mp4"], type: dimensions["maison-type.mp4"] } as const;
-
-// A changed file gets a new URL in both browser and Next.js image caches.
-const homepageMediaUrl = (file: keyof typeof dimensions) =>
-  `/images/homepage/${file}?v=${dimensions[file].version}`;
-
-const maisonImage = (n: keyof typeof maisonImages, alt: string): Art => ({
-  media: { kind: "image", src: homepageMediaUrl(`maison-${n}.webp`) },
-  title: "Maison Music Fest",
-  note: "Visual Identity",
-  alt,
-  ratio: maisonImages[n].width / maisonImages[n].height,
-});
-
-const maisonVideo = (name: keyof typeof maisonVideos, alt: string): Art => ({
-  media: {
-    kind: "video",
-    src: homepageMediaUrl(`maison-${name}.mp4`),
-    poster: homepageMediaUrl(`maison-${name}-poster.webp`),
-  },
-  title: "Maison Music Fest",
-  note: "Motion",
-  alt,
-  ratio: maisonVideos[name].width / maisonVideos[name].height,
-});
+/** Keep each project's homepage selection separate from its complete gallery. */
+export const galleryOnlyMedia = maisonGallery;
 
 const COLUMN_ART: Art[][] = [
-  [maisonImage(1, "Maison Music Fest — festival poster with a blue and lilac gradient"), woka(1), molars(1), artemis(2), glass(1), clip(1), artemis(3)],
-  [maisonVideo("type", "Maison Music Fest — animated typography"), maisonImage(7, "Maison Music Fest — colourful artist and attendee wristbands"), twf(1), molars(2), artemis(5), woka(2), daba(1)],
-  // The middle column, and the wide piece stands first: the name below it then
-  // lands where the design puts it on the first screen. The main page gives
-  // this column to its panel, so what stands here is what /alt shows.
+  [woka(1), molars(1), artemis(2), glass(1), clip(1), artemis(3)],
+  [twf(1), molars(2), artemis(5), woka(2), daba(1)],
   [mofood(), artemis(6), glass(2), nomadi(), widescreen(), woka(3)],
-  [maisonVideo("orbs", "Maison Music Fest — animated orbs"), molars(3), glass(3), artemis(8), clip(3), twf(2), artemis(9)],
-  [maisonImage(3, "Maison Music Fest — ticket artwork with a performer portrait"), maisonImage(8, "Maison Music Fest — festival lineup poster"), woka(4), molars(4), artemis(11), glass(4), clip(5)],
+  [molars(3), glass(3), artemis(8), clip(3), twf(2), artemis(9)],
+  [woka(4), molars(4), artemis(11), glass(4), clip(5)],
 ];
+
+// Distribute the selected files through the existing columns; the other work
+// retains its order and each piece keeps its native aspect ratio.
+maisonGrid.forEach((art, index) => {
+  const column = COLUMN_ART[index % COLUMN_ART.length];
+  column.splice(Math.floor(index / COLUMN_ART.length) * 3, 0, art);
+});
 
 /** The tile the studio's name stands under, in the column that is its own. */
 const IDENTITY_ROW = 0;

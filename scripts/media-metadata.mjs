@@ -30,7 +30,9 @@ function videoSize(data, start = 0, end = data.length) {
 
 const directory = new URL("../public/images/homepage/", import.meta.url);
 const dimensions = {};
-for (const file of (await readdir(directory)).sort()) {
+for (const entry of (await readdir(directory, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name))) {
+  if (!entry.isFile()) continue;
+  const file = entry.name;
   const url = new URL(file, directory);
   const data = await readFile(url);
   let size;

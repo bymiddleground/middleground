@@ -5,6 +5,7 @@ import Link from "next/link";
 import { COLUMN_X, ROW_GUTTER, toStyle } from "@/data/design";
 import {
   CAPTION,
+  galleryOnlyMedia,
   COLUMN_METRICS,
   TITLE_BAND,
   tiles,
@@ -222,10 +223,10 @@ export function Mosaic({
   flow?: boolean;
 } = {}) {
   return (
-    <ArtworkProvider items={tiles.filter(tile => tile.media).map(tile => ({
+    <ArtworkProvider items={[...tiles.filter(tile => tile.media).map(tile => ({
       media: tile.media, title: tile.title, note: tile.note, alt: tile.alt,
       ratio: tile.rect.width / (tile.rect.height - TITLE_BAND),
-    }))}>
+    })), ...galleryOnlyMedia]}>
       <div
         style={{ "--row-gap": `${ROW_GUTTER}px` } as CSSProperties}
         className={[styles.loop, clearFoot ? styles.clearFoot : "", flow ? styles.flow : ""].filter(Boolean).join(" ")}
