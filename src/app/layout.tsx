@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 import type { CSSProperties } from "react";
 
@@ -148,6 +149,7 @@ export default function RootLayout({
             </main>
           </div>
         </NavigationProvider>
+        <Analytics />
       </body>
     </html>
   );
