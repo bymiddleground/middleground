@@ -82,6 +82,15 @@ for (const file of unique) {
   const base = `${slug(file.name)}-${file.hash.slice(0,10)}`;
   const target = path.join(directory,base+(file.video?'.mp4':'.webp'));
   const original = await fs.stat(file.source);
+  // Moving between Grid and Gallery should reuse the same optimized master.
+  const previous = path.join(outputRoot,file.scope==='grid'?'gallery':'grid',path.basename(target));
+  if (!(await fs.stat(target).catch(()=>null))?.size && (await fs.stat(previous).catch(()=>null))?.size) {
+    await fs.copyFile(previous,target);
+    if(file.video) {
+      const oldPoster=previous.replace(/\.mp4$/,'-poster.webp');
+      if((await fs.stat(oldPoster).catch(()=>null))?.size) await fs.copyFile(oldPoster,target.replace(/\.mp4$/,'-poster.webp'));
+    }
+  }
   if (!(await fs.stat(target).catch(()=>null))?.size) {
     if (!file.video) {
       await sharp(file.source).rotate().resize({width:2200,height:2200,fit:'inside',withoutEnlargement:true}).webp({quality:90,effort:6}).toFile(target);
@@ -112,5 +121,25 @@ for (const file of unique) {
   report.push({scope:file.scope,file:file.name,originalMB:+(original.size/1e6).toFixed(2),optimizedMB:+((await fs.stat(target)).size/1e6).toFixed(2),width,height});
 }
 await fs.writeFile('src/data/homepage-media.json',JSON.stringify(manifest,null,2)+'\n');
+// Only remove obsolete generated files from this import's managed directories.
+// The originals in Homepage Media and every other project's assets stay intact.
+const retained = new Set();
+for (const item of [...manifest.grid,...manifest.gallery]) {
+  retained.add(path.resolve('public'+item.media.src));
+  if(item.media.poster) retained.add(path.resolve('public'+item.media.poster));
+  if(item.media.kind==='image') {
+    const relative=item.media.src.replace(/^\/images\//,'').replace(/\.[^.]+$/,'');
+    for(const width of [640,1280]) retained.add(path.resolve(`public/images/gallery/${relative}-${width}.webp`));
+  }
+}
+async function cleanGenerated(directory) {
+  for(const entry of await fs.readdir(directory,{withFileTypes:true}).catch(()=>[])) {
+    const file=path.join(directory,entry.name);
+    if(entry.isDirectory()) { await cleanGenerated(file); continue; }
+    if(/-[0-9a-f]{10}(?:-poster|-640|-1280)?\.(webp|mp4)$/.test(entry.name) && !retained.has(file)) await fs.unlink(file);
+  }
+}
+await cleanGenerated(outputRoot);
+await cleanGenerated(path.resolve('public/images/gallery/homepage/maison-music-fest'));
 await fs.writeFile('../Homepage Media/Review/maison-import-report.json',JSON.stringify({skipped,files:report},null,2)+'\n');
 console.log(JSON.stringify({grid:manifest.grid.length,galleryOnly:manifest.gallery.length,skipped,files:report},null,2));

@@ -16,6 +16,7 @@ import {
 import { getImageProps } from "next/image";
 import { ResilientImage as Image } from "./ResilientImage";
 
+import { mixGalleryMedia } from "@/lib/media-order";
 import { mobileGalleryImage, mobileGallerySrcSet } from "@/lib/gallery-images";
 import { prefersReducedMotion } from "@/lib/motion";
 import type { Tile } from "@/data/projects";
@@ -131,12 +132,13 @@ export function ArtworkProvider({ children, items = [] }: { children: ReactNode;
   const related = useMemo(() => {
     if (!shown) return [];
     const seen = new Set<string>();
-    return [shown, ...items.filter(item => shown.title && item.title === shown.title)]
+    const unique = [shown, ...items.filter(item => shown.title && item.title === shown.title)]
       .filter(item => {
         if (!item.media || seen.has(item.media.src)) return false;
         seen.add(item.media.src);
         return true;
       });
+    return [unique[0], ...mixGalleryMedia(unique.slice(1), `${shown.title}:gallery-v2`)];
   }, [shown, items]);
   const current = related[index] ?? shown;
   /* Where the focus was before, so it can be handed back on the way out. */

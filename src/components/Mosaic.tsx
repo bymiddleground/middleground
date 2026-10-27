@@ -9,6 +9,7 @@ import {
   COLUMN_METRICS,
   TITLE_BAND,
   tiles,
+  flowTiles,
   type Tile,
 } from "@/data/projects";
 
@@ -154,13 +155,15 @@ function Canvas({
   copy,
   skipColumn,
   identity,
+  flow,
 }: {
   copy: number;
   skipColumn?: number;
   identity: boolean;
+  flow: boolean;
 }) {
   const isOriginal = copy === 0;
-  const shown = tiles.filter(
+  const shown = (flow ? flowTiles : tiles).filter(
     (tile) => skipColumn === undefined || columnOf(tile) !== skipColumn,
   );
   const style = {
@@ -234,8 +237,8 @@ export function Mosaic({
         <MosaicMotion delay={delay} />
         {flow ? <FlowScroll /> : <MosaicScroll />}
         {identity ? <IdentityRelay /> : null}
-        <Canvas copy={0} skipColumn={skipColumn} identity={identity} />
-        {!flow ? <Canvas copy={1} skipColumn={skipColumn} identity={identity} /> : null}
+        <Canvas copy={0} skipColumn={skipColumn} identity={identity} flow={flow} />
+        {!flow ? <Canvas copy={1} skipColumn={skipColumn} identity={identity} flow={flow} /> : null}
       </div>
     </ArtworkProvider>
   );

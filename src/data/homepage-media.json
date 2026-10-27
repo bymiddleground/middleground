@@ -8,7 +8,7 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/grid/final-case-study-09-f0dcf1305d.webp"
       },
-      "alt": "Maison Music Fest \u2014 festival identity, typography and graphic applications",
+      "alt": "Maison Music Fest — festival identity, typography and graphic applications",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 1.8318068276436303,
@@ -22,21 +22,7 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/grid/final-case-study-10-548a231e6b.webp"
       },
-      "alt": "Maison Music Fest \u2014 colourful festival banners",
-      "title": "Maison Music Fest",
-      "note": "Visual Identity",
-      "ratio": 1.8318068276436303,
-      "width": 2200,
-      "height": 1201
-    },
-    {
-      "id": "maison-grid-final-case-study-11",
-      "sourceName": "Final Case Study 11.png",
-      "media": {
-        "kind": "image",
-        "src": "/images/homepage/maison-music-fest/grid/final-case-study-11-17ca4fc55d.webp"
-      },
-      "alt": "Maison Music Fest \u2014 festival stage and screen graphics",
+      "alt": "Maison Music Fest — colourful festival banners",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 1.8318068276436303,
@@ -50,7 +36,7 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/grid/final-case-study-13-99fd556661.webp"
       },
-      "alt": "Maison Music Fest \u2014 chrome festival wordmark on a pink gradient",
+      "alt": "Maison Music Fest — chrome festival wordmark on a pink gradient",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 1.8318068276436303,
@@ -64,7 +50,7 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/grid/final-ig-post-01-5498350763.webp"
       },
-      "alt": "Maison Music Fest \u2014 festival T-shirt with iridescent artwork",
+      "alt": "Maison Music Fest — festival T-shirt with iridescent artwork",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 0.75,
@@ -78,7 +64,7 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/grid/final-ig-post-06-883fc623b7.webp"
       },
-      "alt": "Maison Music Fest \u2014 vertical festival street banner",
+      "alt": "Maison Music Fest — vertical festival street banner",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 0.75,
@@ -92,26 +78,12 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/grid/final-ig-post-10-313b845b34.webp"
       },
-      "alt": "Maison Music Fest \u2014 artist poster in an outdoor display",
+      "alt": "Maison Music Fest — artist poster in an outdoor display",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 0.75,
       "width": 1500,
       "height": 2000
-    },
-    {
-      "id": "maison-grid-mmf-brand-01",
-      "sourceName": "MMF-brand-01.png",
-      "media": {
-        "kind": "image",
-        "src": "/images/homepage/maison-music-fest/grid/mmf-brand-01-bae2937c73.webp"
-      },
-      "alt": "Maison Music Fest \u2014 blue and lilac festival poster",
-      "title": "Maison Music Fest",
-      "note": "Visual Identity",
-      "ratio": 0.7681818181818182,
-      "width": 1690,
-      "height": 2200
     },
     {
       "id": "maison-grid-final-ig-post-14",
@@ -121,7 +93,7 @@
         "src": "/images/homepage/maison-music-fest/grid/final-ig-post-14-30b8762059.mp4",
         "poster": "/images/homepage/maison-music-fest/grid/final-ig-post-14-30b8762059-poster.webp"
       },
-      "alt": "Maison Music Fest \u2014 animated artist poster",
+      "alt": "Maison Music Fest — animated artist poster",
       "title": "Maison Music Fest",
       "note": "Motion",
       "ratio": 0.75,
@@ -136,7 +108,7 @@
         "src": "/images/homepage/maison-music-fest/grid/final-post-ig-15-8c0241dd3a.mp4",
         "poster": "/images/homepage/maison-music-fest/grid/final-post-ig-15-8c0241dd3a-poster.webp"
       },
-      "alt": "Maison Music Fest \u2014 animated portrait poster",
+      "alt": "Maison Music Fest — animated portrait poster",
       "title": "Maison Music Fest",
       "note": "Motion",
       "ratio": 0.75,
@@ -151,7 +123,7 @@
         "src": "/images/homepage/maison-music-fest/grid/final-post-ig-16-ddaf1f5b68.mp4",
         "poster": "/images/homepage/maison-music-fest/grid/final-post-ig-16-ddaf1f5b68-poster.webp"
       },
-      "alt": "Maison Music Fest \u2014 animated artist poster carousel",
+      "alt": "Maison Music Fest — animated artist poster carousel",
       "title": "Maison Music Fest",
       "note": "Motion",
       "ratio": 0.75,
@@ -166,7 +138,7 @@
         "src": "/images/homepage/maison-music-fest/grid/mmf-brand-01-9e007647fd.mp4",
         "poster": "/images/homepage/maison-music-fest/grid/mmf-brand-01-9e007647fd-poster.webp"
       },
-      "alt": "Maison Music Fest \u2014 animated coloured orbs",
+      "alt": "Maison Music Fest — animated coloured orbs",
       "title": "Maison Music Fest",
       "note": "Motion",
       "ratio": 1.7777777777777777,
@@ -176,13 +148,27 @@
   ],
   "gallery": [
     {
+      "id": "maison-gallery-final-case-study-11",
+      "sourceName": "Final Case Study 11.png",
+      "media": {
+        "kind": "image",
+        "src": "/images/homepage/maison-music-fest/gallery/final-case-study-11-17ca4fc55d.webp"
+      },
+      "alt": "Maison Music Fest — festival stage and screen graphics",
+      "title": "Maison Music Fest",
+      "note": "Visual Identity",
+      "ratio": 1.8318068276436303,
+      "width": 2200,
+      "height": 1201
+    },
+    {
       "id": "maison-gallery-final-case-study-12",
       "sourceName": "Final Case Study 12.png",
       "media": {
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/gallery/final-case-study-12-50ca6da350.webp"
       },
-      "alt": "Maison Music Fest \u2014 colourful artist and attendee wristbands",
+      "alt": "Maison Music Fest — colourful artist and attendee wristbands",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 1.8318068276436303,
@@ -196,7 +182,7 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/gallery/final-ig-post-03-6f37527ee1.webp"
       },
-      "alt": "Maison Music Fest \u2014 printed festival tickets and sleeves",
+      "alt": "Maison Music Fest — printed festival tickets and sleeves",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 0.75,
@@ -210,7 +196,7 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/gallery/final-ig-post-05-be970d6a0c.webp"
       },
-      "alt": "Maison Music Fest \u2014 iridescent festival poster",
+      "alt": "Maison Music Fest — iridescent festival poster",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 0.75,
@@ -224,7 +210,7 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/gallery/final-ig-post-08-792d4b7025.webp"
       },
-      "alt": "Maison Music Fest \u2014 festival artist lineup portraits",
+      "alt": "Maison Music Fest — festival artist lineup portraits",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 0.75,
@@ -238,7 +224,7 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/gallery/ig-2-3ae775c877.webp"
       },
-      "alt": "Maison Music Fest \u2014 festival logo colour variations",
+      "alt": "Maison Music Fest — festival logo colour variations",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 0.7681818181818182,
@@ -252,7 +238,7 @@
         "kind": "image",
         "src": "/images/homepage/maison-music-fest/gallery/ig-5-0815c092c6.webp"
       },
-      "alt": "Maison Music Fest \u2014 festival lineup poster",
+      "alt": "Maison Music Fest — festival lineup poster",
       "title": "Maison Music Fest",
       "note": "Visual Identity",
       "ratio": 0.7681818181818182,
@@ -267,7 +253,7 @@
         "src": "/images/homepage/maison-music-fest/gallery/maison-music-logo-animation-with-sound-1af1b4dbe0.mp4",
         "poster": "/images/homepage/maison-music-fest/gallery/maison-music-logo-animation-with-sound-1af1b4dbe0-poster.webp"
       },
-      "alt": "Maison Music Fest \u2014 festival logo animation with sound",
+      "alt": "Maison Music Fest — festival logo animation with sound",
       "title": "Maison Music Fest",
       "note": "Motion",
       "ratio": 0.8,
@@ -282,27 +268,12 @@
         "src": "/images/homepage/maison-music-fest/gallery/chrome-logo-v2-8cf9691b28.mp4",
         "poster": "/images/homepage/maison-music-fest/gallery/chrome-logo-v2-8cf9691b28-poster.webp"
       },
-      "alt": "Maison Music Fest \u2014 chrome festival symbol animation",
+      "alt": "Maison Music Fest — chrome festival symbol animation",
       "title": "Maison Music Fest",
       "note": "Motion",
       "ratio": 0.75,
       "width": 1080,
       "height": 1440
-    },
-    {
-      "id": "maison-gallery-mmf-brand-02",
-      "sourceName": "MMF-brand-02.mp4",
-      "media": {
-        "kind": "video",
-        "src": "/images/homepage/maison-music-fest/gallery/mmf-brand-02-5a4cffed82.mp4",
-        "poster": "/images/homepage/maison-music-fest/gallery/mmf-brand-02-5a4cffed82-poster.webp"
-      },
-      "alt": "Maison Music Fest \u2014 animated festival lineup typography",
-      "title": "Maison Music Fest",
-      "note": "Motion",
-      "ratio": 0.7675401521555367,
-      "width": 1816,
-      "height": 2366
     }
   ]
 }

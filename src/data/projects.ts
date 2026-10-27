@@ -1,3 +1,4 @@
+import { spreadProjectMedia } from "../lib/media-order";
 import { maisonGrid, maisonGallery } from "./homepage-media";
 import {
   CENTRE_COLUMN,
@@ -340,6 +341,9 @@ export const tiles: Tile[] = COLUMN_TILES.flat().sort(
  * Derived from the tiles rather than written out again, so a project added to
  * the grid is a project the structured data already knows about.
  */
+/** Homepage column flow has its own reading order, independent of /alt coordinates. */
+export const flowTiles = spreadProjectMedia(tiles, "Maison Music Fest", maisonGrid.find(item => item.media.src.includes("/final-post-ig-16-"))?.media.src);
+
 export type ProjectEntry = {
   title: string;
   /** What the work was — the first half of the tile's note. */
