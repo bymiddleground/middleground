@@ -1,0 +1,34 @@
+{
+  "project": "Artemis",
+  "grid": [
+    {
+      "id": "artemis-grid-artemis-logo-grid",
+      "sourceName": "Artemis Logo Grid.png",
+      "media": {
+        "kind": "image",
+        "src": "/images/homepage/artemis/grid/artemis-logo-grid-3f55fcab50.webp"
+      },
+      "title": "Artemis",
+      "note": "Brand Identity",
+      "alt": "Artemis \u2014 construction grid for the blue Artemis symbol",
+      "width": 1920,
+      "height": 1080,
+      "ratio": 1.7777777777777777
+    },
+    {
+      "id": "artemis-grid-artemis-logo-tray",
+      "sourceName": "Artemis Logo Tray.png",
+      "media": {
+        "kind": "image",
+        "src": "/images/homepage/artemis/grid/artemis-logo-tray-a74e3eb7b2.webp"
+      },
+      "title": "Artemis",
+      "note": "Brand Identity",
+      "alt": "Artemis \u2014 Artemis app icon in a desktop application dock",
+      "width": 1920,
+      "height": 1080,
+      "ratio": 1.7777777777777777
+    }
+  ],
+  "gallery": []
+}

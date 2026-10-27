@@ -1,5 +1,5 @@
 import { spreadProjectMedia } from "../lib/media-order";
-import { maisonGrid, maisonGallery } from "./homepage-media";
+import { maisonGrid, maisonGallery, artemisGrid, artemisGallery } from "./homepage-media";
 import {
   CENTRE_COLUMN,
   CENTRE_WIDTH,
@@ -63,7 +63,6 @@ type Art = Pick<Tile, "media" | "alt" | "title" | "note"> & {
  */
 type Project = { title: string; note: string };
 
-const ARTEMIS: Project = { title: "Artemis", note: "Brand Identity, 2026" };
 const MOLARS: Project = {
   title: "Outsmarted My Molars",
   note: "Campaign, 2025",
@@ -114,15 +113,6 @@ function clip(n: number, ratio = 720 / 900): Art {
 
 /** The one clip shot wide, which only the middle column can seat. */
 const widescreen = () => clip(4, 1920 / 1080);
-
-/** Artemis — brand identity for a fossil identification app. */
-const artemis = (n: number) =>
-  work(
-    `artemis-${String(n).padStart(2, "0")}.jpg`,
-    "Artemis — brand identity for a fossil identification app",
-    ARTEMIS,
-    2160 / 2700,
-  );
 
 /** Outsmarted My Molars — sticker campaign. */
 const molars = (n: number) =>
@@ -225,14 +215,14 @@ function artworkHeight(column: number, ratio: number) {
 }
 
 /** Keep each project's homepage selection separate from its complete gallery. */
-export const galleryOnlyMedia = maisonGallery;
+export const galleryOnlyMedia = [...maisonGallery, ...artemisGallery];
 
 const COLUMN_ART: Art[][] = [
-  [woka(1), molars(1), artemis(2), glass(1), clip(1), artemis(3)],
-  [twf(1), molars(2), artemis(5), woka(2), daba(1)],
-  [mofood(), artemis(6), glass(2), nomadi(), widescreen(), woka(3)],
-  [molars(3), glass(3), artemis(8), clip(3), twf(2), artemis(9)],
-  [woka(4), molars(4), artemis(11), glass(4), clip(5)],
+  [woka(1), molars(1), glass(1), clip(1)],
+  [twf(1), molars(2), woka(2), daba(1)],
+  [mofood(), glass(2), nomadi(), widescreen(), woka(3)],
+  [molars(3), glass(3), clip(3), twf(2)],
+  [woka(4), molars(4), glass(4), clip(5)],
 ];
 
 // Distribute the selected files through the existing columns; the other work
@@ -240,6 +230,12 @@ const COLUMN_ART: Art[][] = [
 maisonGrid.forEach((art, index) => {
   const column = COLUMN_ART[index % COLUMN_ART.length];
   column.splice(Math.floor(index / COLUMN_ART.length) * 3, 0, art);
+});
+
+// The curated Artemis selection is the complete project shown on the site.
+artemisGrid.forEach((art, index) => {
+  const column = COLUMN_ART[[1, 3, 4, 0][index % 4]];
+  column.splice(2 + (index % 3), 0, art);
 });
 
 /** The tile the studio's name stands under, in the column that is its own. */

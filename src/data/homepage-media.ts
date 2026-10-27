@@ -1,4 +1,5 @@
 import manifest from "./homepage-media.json";
+import artemisManifest from "./artemis-media.json";
 import type { TileMedia } from "./projects";
 
 const artwork = (item: (typeof manifest.grid)[number]) => ({
@@ -12,3 +13,5 @@ const artwork = (item: (typeof manifest.grid)[number]) => ({
 /** Grid appears on the homepage and in the carousel. Gallery stays inside it. */
 export const maisonGrid = manifest.grid.map(artwork);
 export const maisonGallery = manifest.gallery.map(artwork);
+export const artemisGrid = artemisManifest.grid.map(artwork);
+export const artemisGallery = artemisManifest.gallery.map(artwork);

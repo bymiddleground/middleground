@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import manifest from "../src/data/homepage-media.json";
+import artemisManifest from "../src/data/artemis-media.json";
 import { tiles, flowTiles, galleryOnlyMedia, TITLE_BAND } from "../src/data/projects";
 import { mixGalleryMedia } from "../src/lib/media-order";
 import { mobileGalleryImage } from "../src/lib/gallery-images";
@@ -9,7 +10,7 @@ import { mobileGalleryImage } from "../src/lib/gallery-images";
 const selected = tiles.filter(tile => tile.title === manifest.project);
 assert.equal(selected.length, manifest.grid.length, "Homepage must contain exactly the Grid selection");
 assert.deepEqual(new Set(selected.map(tile => tile.media?.src)), new Set(manifest.grid.map(item => item.media.src)), "No previous or gallery-only Maison tiles may remain on the homepage");
-assert.equal(galleryOnlyMedia.length, manifest.gallery.length);
+assert.equal(galleryOnlyMedia.filter(item => item.title === manifest.project).length, manifest.gallery.length);
 const all = [...manifest.grid, ...manifest.gallery];
 assert.equal(new Set(all.map(item => item.media.src)).size, all.length, "Project gallery must not contain duplicate media");
 for (const item of all) {
@@ -37,3 +38,12 @@ const category = (item: typeof mixed[number]) => item.media.kind === "video" ? "
 const categories = new Set(all.map(category));
 assert.deepEqual(new Set(mixed.slice(0, categories.size).map(category)), categories, "Gallery should mix available media types from the start");
 console.log(`Verified ${selected.length} Grid items, ${galleryOnlyMedia.length} gallery-only items, ${all.length} unique carousel items and all mobile assets.`);
+assert.deepEqual(new Set(tiles.filter(tile => tile.title === artemisManifest.project).map(tile => tile.media?.src)), new Set(artemisManifest.grid.map(item => item.media.src)), "Only the curated Artemis selection may remain on the site");
+for (const item of artemisManifest.grid) {
+  const tile = flowTiles.find(tile => tile.media?.src === item.media.src);
+  assert(tile && tile.title === artemisManifest.project, `New Artemis photo missing from homepage: ${item.sourceName}`);
+  assert(existsSync(join(process.cwd(), "public", item.media.src)));
+  assert(Math.abs(tile.rect.width / (tile.rect.height - TITLE_BAND) - item.ratio) < 1e-9);
+  for (const width of [640, 1280] as const) assert(existsSync(join(process.cwd(), "public", mobileGalleryImage(item.media.src, width))));
+}
+console.log(`Verified ${artemisManifest.grid.length} imported Artemis photos and their mobile variants.`);

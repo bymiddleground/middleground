@@ -15,7 +15,8 @@
     "prebuild": "npm run media:metadata && npm run media:gallery",
     "media:gallery": "node scripts/gallery-images.mjs",
     "media:import": "node scripts/import-homepage-media.mjs",
-    "media:check": "tsx scripts/check-homepage-media.ts"
+    "media:check": "tsx scripts/check-homepage-media.ts",
+    "media:import:artemis": "node scripts/import-artemis-photos.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",
