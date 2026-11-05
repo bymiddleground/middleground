@@ -1,5 +1,6 @@
 import manifest from "./homepage-media.json";
 import artemisManifest from "./artemis-media.json";
+import otherPracticeManifest from "./other-practice-media.json";
 import type { TileMedia } from "./projects";
 
 const artwork = (item: (typeof manifest.grid)[number]) => ({
@@ -15,3 +16,6 @@ export const maisonGrid = manifest.grid.map(artwork);
 export const maisonGallery = manifest.gallery.map(artwork);
 export const artemisGrid = artemisManifest.grid.map(artwork);
 export const artemisGallery = artemisManifest.gallery.map(artwork);
+
+export const otherPracticeGrid = otherPracticeManifest.grid.map(artwork);
+export const otherPracticeGallery = otherPracticeManifest.gallery.map(artwork);

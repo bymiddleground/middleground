@@ -1,5 +1,5 @@
 import { spreadProjectMedia } from "../lib/media-order";
-import { maisonGrid, maisonGallery, artemisGrid, artemisGallery } from "./homepage-media";
+import { maisonGrid, maisonGallery, artemisGrid, artemisGallery, otherPracticeGrid, otherPracticeGallery } from "./homepage-media";
 import {
   CENTRE_COLUMN,
   CENTRE_WIDTH,
@@ -215,7 +215,7 @@ function artworkHeight(column: number, ratio: number) {
 }
 
 /** Keep each project's homepage selection separate from its complete gallery. */
-export const galleryOnlyMedia = [...maisonGallery, ...artemisGallery];
+export const galleryOnlyMedia = [...maisonGallery, ...artemisGallery, ...otherPracticeGallery];
 
 const COLUMN_ART: Art[][] = [
   [woka(1), molars(1), glass(1), clip(1)],
@@ -236,6 +236,12 @@ maisonGrid.forEach((art, index) => {
 artemisGrid.forEach((art, index) => {
   const column = COLUMN_ART[[1, 3, 4, 0][index % 4]];
   column.splice(2 + (index % 3), 0, art);
+});
+
+// Spread Other Practice across the homepage; group it by title in the gallery.
+otherPracticeGrid.forEach((art, index) => {
+  const column = COLUMN_ART[[0, 2, 4, 1, 3][index % 5]];
+  column.splice(1 + index, 0, art);
 });
 
 /** The tile the studio's name stands under, in the column that is its own. */
