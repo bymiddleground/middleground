@@ -424,7 +424,7 @@
         "x": 287,
         "y": 1134.7943181818182,
         "width": 255,
-        "height": 246.51071428571427
+        "height": 246.52727272727273
       },
       "place": {
         "column": 1,
@@ -434,9 +434,9 @@
       },
       "media": {
         "kind": "image",
-        "src": "/images/homepage/other-practice/grid/other-practice-44-1ee3fa9e7a.webp"
+        "src": "/images/homepage/other-practice/grid/other-practice-48-eebfa586a7.webp"
       },
-      "alt": "Other Practice — circular logo over flowing red textures",
+      "alt": "Other Practice — social profile logo on a phone with a pastel background",
       "title": "Other Practice",
       "note": "Brand Identity"
     },
@@ -534,7 +534,7 @@
       "id": "c2-r6",
       "rect": {
         "x": 287,
-        "y": 1405.3050324675323,
+        "y": 1405.321590909091,
         "width": 255,
         "height": 381.6
       },
@@ -542,7 +542,7 @@
         "column": 1,
         "gaps": 6,
         "bands": 5,
-        "stacked": 1061.3050324675326
+        "stacked": 1061.321590909091
       },
       "media": {
         "kind": "video",
@@ -626,7 +626,7 @@
         "x": 898,
         "y": 1741.1875,
         "width": 255,
-        "height": 246.51071428571427
+        "height": 246.52727272727273
       },
       "place": {
         "column": 3,
@@ -636,9 +636,9 @@
       },
       "media": {
         "kind": "image",
-        "src": "/images/homepage/other-practice/grid/other-practice-45-5f1c53f280.webp"
+        "src": "/images/homepage/other-practice/grid/other-practice-49-4ab8708fd6.webp"
       },
-      "alt": "Other Practice — white logo over a pastel textured composition",
+      "alt": "Other Practice — flowing red and orange typographic textures",
       "title": "Other Practice",
       "note": "Brand Identity"
     },
@@ -646,7 +646,7 @@
       "id": "c2-r7",
       "rect": {
         "x": 287,
-        "y": 1810.9050324675322,
+        "y": 1810.9215909090908,
         "width": 255,
         "height": 296.6
       },
@@ -654,7 +654,7 @@
         "column": 1,
         "gaps": 7,
         "bands": 6,
-        "stacked": 1401.3050324675326
+        "stacked": 1401.321590909091
       },
       "media": {
         "kind": "image",
@@ -714,7 +714,7 @@
       "id": "c4-r7",
       "rect": {
         "x": 898,
-        "y": 2011.6982142857141,
+        "y": 2011.7147727272727,
         "width": 255,
         "height": 360.35
       },
@@ -722,7 +722,7 @@
         "column": 3,
         "gaps": 7,
         "bands": 6,
-        "stacked": 1602.0982142857142
+        "stacked": 1602.1147727272728
       },
       "media": {
         "kind": "video",
@@ -759,7 +759,7 @@
       "id": "c2-r8",
       "rect": {
         "x": 287,
-        "y": 2131.505032467532,
+        "y": 2131.5215909090907,
         "width": 255,
         "height": 360.35
       },
@@ -767,7 +767,7 @@
         "column": 1,
         "gaps": 8,
         "bands": 7,
-        "stacked": 1656.3050324675326
+        "stacked": 1656.321590909091
       },
       "media": {
         "kind": "image",
@@ -781,7 +781,7 @@
       "id": "c4-r8",
       "rect": {
         "x": 898,
-        "y": 2396.048214285714,
+        "y": 2396.0647727272726,
         "width": 255,
         "height": 296.6
       },
@@ -789,7 +789,7 @@
         "column": 3,
         "gaps": 8,
         "bands": 7,
-        "stacked": 1920.8482142857142
+        "stacked": 1920.8647727272728
       },
       "media": {
         "kind": "image",
@@ -854,7 +854,7 @@
     {
       "gaps": 8,
       "bands": 8,
-      "stacked": 1975.0550324675326
+      "stacked": 1975.071590909091
     },
     {
       "gaps": 9,
@@ -864,7 +864,7 @@
     {
       "gaps": 8,
       "bands": 8,
-      "stacked": 2175.848214285714
+      "stacked": 2175.864772727273
     },
     {
       "gaps": 7,
@@ -1088,7 +1088,7 @@
           "x": 287,
           "y": 1134.7943181818182,
           "width": 255,
-          "height": 246.51071428571427
+          "height": 246.52727272727273
         },
         "place": {
           "column": 1,
@@ -1146,7 +1146,7 @@
         "tile": "c2-r6",
         "rect": {
           "x": 287,
-          "y": 1405.3050324675323,
+          "y": 1405.321590909091,
           "width": 255,
           "height": 381.6
         },
@@ -1154,7 +1154,7 @@
           "column": 1,
           "gaps": 6,
           "bands": 5,
-          "stacked": 1061.3050324675326
+          "stacked": 1061.321590909091
         }
       },
       {
@@ -1208,7 +1208,7 @@
           "x": 898,
           "y": 1741.1875,
           "width": 255,
-          "height": 246.51071428571427
+          "height": 246.52727272727273
         },
         "place": {
           "column": 3,
@@ -1221,7 +1221,7 @@
         "tile": "c2-r7",
         "rect": {
           "x": 287,
-          "y": 1810.9050324675322,
+          "y": 1810.9215909090908,
           "width": 255,
           "height": 296.6
         },
@@ -1229,7 +1229,7 @@
           "column": 1,
           "gaps": 7,
           "bands": 6,
-          "stacked": 1401.3050324675326
+          "stacked": 1401.321590909091
         }
       },
       {
@@ -1266,7 +1266,7 @@
         "tile": "c4-r7",
         "rect": {
           "x": 898,
-          "y": 2011.6982142857141,
+          "y": 2011.7147727272727,
           "width": 255,
           "height": 360.35
         },
@@ -1274,7 +1274,7 @@
           "column": 3,
           "gaps": 7,
           "bands": 6,
-          "stacked": 1602.0982142857142
+          "stacked": 1602.1147727272728
         }
       },
       {
@@ -1296,7 +1296,7 @@
         "tile": "c2-r8",
         "rect": {
           "x": 287,
-          "y": 2131.505032467532,
+          "y": 2131.5215909090907,
           "width": 255,
           "height": 360.35
         },
@@ -1304,14 +1304,14 @@
           "column": 1,
           "gaps": 8,
           "bands": 7,
-          "stacked": 1656.3050324675326
+          "stacked": 1656.321590909091
         }
       },
       {
         "tile": "c4-r8",
         "rect": {
           "x": 898,
-          "y": 2396.048214285714,
+          "y": 2396.0647727272726,
           "width": 255,
           "height": 296.6
         },
@@ -1319,7 +1319,7 @@
           "column": 3,
           "gaps": 8,
           "bands": 7,
-          "stacked": 1920.8482142857142
+          "stacked": 1920.8647727272728
         }
       },
       {

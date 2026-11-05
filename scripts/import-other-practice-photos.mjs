@@ -10,8 +10,8 @@ const descriptions = {
   'Other Practice 39.png': 'red textured 3D lettering on blue',
   'Other Practice 40.png': 'circular logo variations in orange and blue',
   'Other Practice 43.png': 'orange watch with an expressive typographic face',
-  'Other Practice 44.png': 'circular logo over flowing red textures',
-  'Other Practice 45.png': 'white logo over a pastel textured composition',
+  'Other Practice 48.png': 'social profile logo on a phone with a pastel background',
+  'Other Practice 49.png': 'flowing red and orange typographic textures',
 };
 const entries = await fs.readdir(source, { withFileTypes: true });
 const grouped = entries.some(entry => entry.isDirectory() && entry.name === 'Grid');
@@ -39,3 +39,16 @@ for (const scope of ['grid', 'gallery']) {
 }
 await fs.writeFile('src/data/other-practice-media.json', JSON.stringify(manifest, null, 2) + '\n');
 console.log(`Imported ${manifest.grid.length} homepage photos and ${manifest.gallery.length} gallery-only photos.`);
+
+// Remove generated assets for photos no longer selected in the source folder.
+const selected = new Set([...manifest.grid, ...manifest.gallery].map(item => item.media.src));
+for (const scope of ['grid', 'gallery']) {
+  const directory = path.resolve('public/images/homepage/other-practice', scope);
+  for (const name of await fs.readdir(directory).catch(() => [])) {
+    if (!name.endsWith('.webp') || selected.has(`/images/homepage/other-practice/${scope}/${name}`)) continue;
+    await fs.unlink(path.join(directory, name));
+    for (const width of [640, 1280]) {
+      await fs.rm(path.resolve('public/images/gallery/homepage/other-practice', scope, name.replace('.webp', `-${width}.webp`)), { force: true });
+    }
+  }
+}
