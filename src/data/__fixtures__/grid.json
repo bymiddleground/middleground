@@ -434,9 +434,9 @@
       },
       "media": {
         "kind": "image",
-        "src": "/images/homepage/other-practice/grid/other-practice-48-eebfa586a7.webp"
+        "src": "/images/homepage/other-practice/grid/other-practice-49-4ab8708fd6.webp"
       },
-      "alt": "Other Practice — social profile logo on a phone with a pastel background",
+      "alt": "Other Practice — flowing red and orange typographic textures",
       "title": "Other Practice",
       "note": "Brand Identity"
     },
@@ -626,7 +626,7 @@
         "x": 898,
         "y": 1741.1875,
         "width": 255,
-        "height": 246.52727272727273
+        "height": 360.35
       },
       "place": {
         "column": 3,
@@ -635,12 +635,13 @@
         "stacked": 1397.1875
       },
       "media": {
-        "kind": "image",
-        "src": "/images/homepage/other-practice/grid/other-practice-49-4ab8708fd6.webp"
+        "kind": "video",
+        "src": "/images/motion-03.mp4",
+        "poster": "/images/motion-03-poster.webp"
       },
-      "alt": "Other Practice — flowing red and orange typographic textures",
-      "title": "Other Practice",
-      "note": "Brand Identity"
+      "alt": "Motion study",
+      "title": "Motion",
+      "note": "3D & Motion, 2026"
     },
     {
       "id": "c2-r7",
@@ -711,29 +712,6 @@
       "note": "3D & Motion, 2026"
     },
     {
-      "id": "c4-r7",
-      "rect": {
-        "x": 898,
-        "y": 2011.7147727272727,
-        "width": 255,
-        "height": 360.35
-      },
-      "place": {
-        "column": 3,
-        "gaps": 7,
-        "bands": 6,
-        "stacked": 1602.1147727272728
-      },
-      "media": {
-        "kind": "video",
-        "src": "/images/motion-03.mp4",
-        "poster": "/images/motion-03-poster.webp"
-      },
-      "alt": "Motion study",
-      "title": "Motion",
-      "note": "3D & Motion, 2026"
-    },
-    {
       "id": "c3-r6",
       "rect": {
         "x": 558,
@@ -753,6 +731,28 @@
       },
       "alt": "Nomadi — the wordmark over a portrait at the shoreline",
       "title": "Nomadi",
+      "note": "Brand Identity, 2023"
+    },
+    {
+      "id": "c4-r7",
+      "rect": {
+        "x": 898,
+        "y": 2125.5375,
+        "width": 255,
+        "height": 296.6
+      },
+      "place": {
+        "column": 3,
+        "gaps": 7,
+        "bands": 6,
+        "stacked": 1715.9375
+      },
+      "media": {
+        "kind": "image",
+        "src": "/images/twf-02.jpg"
+      },
+      "alt": "Tech for the World Forum — the logotype with the globe set into the word",
+      "title": "Tech for the World Forum",
       "note": "Brand Identity, 2023"
     },
     {
@@ -776,28 +776,6 @@
       "alt": "DABA — the logotype set across a close-up portrait",
       "title": "DABA",
       "note": "Brand Identity, 2024"
-    },
-    {
-      "id": "c4-r8",
-      "rect": {
-        "x": 898,
-        "y": 2396.0647727272726,
-        "width": 255,
-        "height": 296.6
-      },
-      "place": {
-        "column": 3,
-        "gaps": 8,
-        "bands": 7,
-        "stacked": 1920.8647727272728
-      },
-      "media": {
-        "kind": "image",
-        "src": "/images/twf-02.jpg"
-      },
-      "alt": "Tech for the World Forum — the logotype with the globe set into the word",
-      "title": "Tech for the World Forum",
-      "note": "Brand Identity, 2023"
     },
     {
       "id": "c3-r7",
@@ -862,9 +840,9 @@
       "stacked": 2539.259495660589
     },
     {
-      "gaps": 8,
-      "bands": 8,
-      "stacked": 2175.864772727273
+      "gaps": 7,
+      "bands": 7,
+      "stacked": 1970.9375
     },
     {
       "gaps": 7,
@@ -1208,7 +1186,7 @@
           "x": 898,
           "y": 1741.1875,
           "width": 255,
-          "height": 246.52727272727273
+          "height": 360.35
         },
         "place": {
           "column": 3,
@@ -1263,21 +1241,6 @@
         }
       },
       {
-        "tile": "c4-r7",
-        "rect": {
-          "x": 898,
-          "y": 2011.7147727272727,
-          "width": 255,
-          "height": 360.35
-        },
-        "place": {
-          "column": 3,
-          "gaps": 7,
-          "bands": 6,
-          "stacked": 1602.1147727272728
-        }
-      },
-      {
         "tile": "c3-r6",
         "rect": {
           "x": 558,
@@ -1293,6 +1256,21 @@
         }
       },
       {
+        "tile": "c4-r7",
+        "rect": {
+          "x": 898,
+          "y": 2125.5375,
+          "width": 255,
+          "height": 296.6
+        },
+        "place": {
+          "column": 3,
+          "gaps": 7,
+          "bands": 6,
+          "stacked": 1715.9375
+        }
+      },
+      {
         "tile": "c2-r8",
         "rect": {
           "x": 287,
@@ -1305,21 +1283,6 @@
           "gaps": 8,
           "bands": 7,
           "stacked": 1656.321590909091
-        }
-      },
-      {
-        "tile": "c4-r8",
-        "rect": {
-          "x": 898,
-          "y": 2396.0647727272726,
-          "width": 255,
-          "height": 296.6
-        },
-        "place": {
-          "column": 3,
-          "gaps": 8,
-          "bands": 7,
-          "stacked": 1920.8647727272728
         }
       },
       {

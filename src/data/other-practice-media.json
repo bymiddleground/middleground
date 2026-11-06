@@ -44,20 +44,6 @@
       "ratio": 1.2444444444444445
     },
     {
-      "id": "other-practice-grid-other-practice-48",
-      "sourceName": "Other Practice 48.png",
-      "media": {
-        "kind": "image",
-        "src": "/images/homepage/other-practice/grid/other-practice-48-eebfa586a7.webp"
-      },
-      "title": "Other Practice",
-      "note": "Brand Identity",
-      "alt": "Other Practice — social profile logo on a phone with a pastel background",
-      "width": 2200,
-      "height": 1768,
-      "ratio": 1.244343891402715
-    },
-    {
       "id": "other-practice-grid-other-practice-49",
       "sourceName": "Other Practice 49.png",
       "media": {
@@ -72,5 +58,20 @@
       "ratio": 1.244343891402715
     }
   ],
-  "gallery": []
+  "gallery": [
+    {
+      "id": "other-practice-gallery-other-practice-48",
+      "sourceName": "Other Practice 48.png",
+      "media": {
+        "kind": "image",
+        "src": "/images/homepage/other-practice/gallery/other-practice-48-eebfa586a7.webp"
+      },
+      "title": "Other Practice",
+      "note": "Brand Identity",
+      "alt": "Other Practice — social profile logo on a phone with a pastel background",
+      "width": 2200,
+      "height": 1768,
+      "ratio": 1.244343891402715
+    }
+  ]
 }
